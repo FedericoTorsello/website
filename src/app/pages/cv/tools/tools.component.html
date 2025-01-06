@@ -1,0 +1,23 @@
+<div class="flex flex-wrap justify-between md:grid md:grid-cols-2 items-start gap-2">
+  @for (tool of toolList(); track $index) {
+    <div class="grid gap-0.5 min-w-28 justify-items-center">
+      @let src = tool.icon.src;
+      @let name = tool.name;
+      @if (src.includes("svg")) {
+        <ng-icon size="30" [svg]="src" [title]="name" />
+      } @else {
+        <img
+          class="object-contain h-8 max-h-[30px]"
+          [src]="src"
+          [title]="name"
+          [alt]="name"
+        />
+      }
+      <small
+        class="text-center text-[12px] text-gray-600 font-black small-caps"
+      >
+        {{ name }}
+      </small>
+    </div>
+  }
+</div>

@@ -1,0 +1,15 @@
+TEST
+
+<div class="mockup-code">
+  <pre data-prefix="$"><code>npm i daisyui</code></pre>
+  <pre data-prefix=">" class="text-warning"><code>installing...</code></pre>
+  <pre data-prefix=">" class="text-success"><code>Done!</code></pre>
+</div>
+
+@if (highlightedCode.code; as code ) {
+<div class="mockup-code">
+  <pre
+    [attr.data-prefix]="highlightedCode.dataPrefix"
+  ><code [highlightAuto]="code"></code></pre>
+</div>
+}

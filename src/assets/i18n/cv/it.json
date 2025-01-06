@@ -1,0 +1,26 @@
+{
+  "privacy": "autorizzo il trattamento dei miei dati personali presenti nel CV ai sensi del D.Lgs. 196/2003 “Codice in materia di protezione dei dati personali” e del GDPR (Reg. UE 2016/679)",
+  "sections": {
+    "aboutMe": "presentazione",
+    "info": "informazioni",
+    "contacts": "contatti",
+    "profile": "profilo",
+    "skills": "skills",
+    "workExperience": "esperienza lavorativa",
+    "educationAndTraining": "istruzione e formazione",
+    "languages": "linguaggi di programmazione",
+    "platforms": "piattaforme",
+    "frameworks": "frameworks",
+    "libraries": "librerie",
+    "others": "altro",
+    "certifications": "certificazioni",
+    "hobbies": "hobby e interessi"
+  },
+  "social": {
+    "title": "social",
+    "value": {
+      "name": "Linkedin",
+      "url": "https://www.linkedin.com/in/federicotorsello"
+    }
+  }
+}

@@ -1,0 +1,148 @@
+<ng-container *transloco="let t; scope: 'cv'">
+  <div class="print:hidden grid justify-items-end">
+    <div>
+      <button class="capitalize" (click)="onPrint()">print</button>
+    </div>
+  </div>
+
+  <div class="flex justify-center bg-transparent" data-theme="light">
+    <main
+      id="cv"
+      class="grid md:gap-2 print:gap-0 md:w-[210mm] md:min-w-[210mm] md:min-h-[297mm]"
+    >
+      <article
+        id="pag1"
+        class="flex flex-col md:flex-row md:h-[297mm] bg-white shadow-xl"
+      >
+        <section
+          class="md:w-4/6 py-10 px-4 bg-blue-50 border-r-2 border-r-blue-50"
+        >
+          <div class="grid gap-5">
+            <div class="flex justify-between">
+              <div class="space-y-2">
+                <h1 class="text-5xl font-bold w-min">
+                  {{ personalInfo.fullName }}
+                </h1>
+                <h2 class="font-mono uppercase">front-end developer</h2>
+              </div>
+              <div class="md:hidden grid avatar -mt-3" [title]="personalInfo.fullName">
+                <div
+                  class="ring ring-slate-600 ring-offset-base-100 rounded-full w-32"
+                >
+                  <img src="assets/bio/avatar.jpg" />
+                </div>
+              </div>
+            </div>
+            <div>
+              <h2 class="text-xl font-semibold uppercase">
+                {{ t("cv.sections.educationAndTraining") }}
+              </h2>
+              <app-education [educationList]="educationList" />
+            </div>
+            <div>
+              <h2 class="text-xl font-semibold uppercase">
+                {{ t("cv.sections.workExperience") }}
+              </h2>
+              <app-work-experience
+                [timeline]="true"
+                [workExperienceList]="workExperienceList.pag1"
+              />
+            </div>
+          </div>
+        </section>
+        <aside class="md:w-2/6 p-6 grid justify-items-center gap-6">
+          <div class="sm:hidden md:block grid avatar" [title]="personalInfo.fullName">
+            <div
+              class="ring ring-slate-600 ring-offset-base-100 rounded-full w-36"
+            >
+              <img src="assets/bio/avatar.jpg" />
+            </div>
+          </div>
+
+          <app-contacts [contacts]="contacts" />
+
+          <div class="grid gap-2 justify-items-center">
+            <h2
+              class="text-center text-sm text-blue-400 font-semibold uppercase"
+            >
+              {{ t("cv.sections.languages") }}
+            </h2>
+            <app-tools [toolList]="tools.languages" />
+          </div>
+
+          <div class="grid gap-2 justify-items-center">
+            <h2
+              class="text-center text-sm text-blue-400 font-semibold uppercase"
+            >
+              {{ t("cv.sections.frameworks") }}
+            </h2>
+            <app-tools [toolList]="tools.frameworks" />
+          </div>
+        </aside>
+      </article>
+      <article
+        id="pag2"
+        class="flex flex-col md:flex-row md:h-[297mm] bg-white shadow-xl"
+      >
+        <section
+          class="md:w-4/6 py-10 px-4 bg-blue-50 border-r-2 border-r-blue-50 grid"
+        >
+          <app-work-experience
+            [timeline]="true"
+            [workExperienceList]="workExperienceList.pag2"
+          />
+          <div>
+            <h2 class="text-xl font-semibold uppercase">
+              {{ t("cv.sections.certifications") }}
+            </h2>
+            <app-certificates
+              class="text-sm"
+              [certificatesList]="certificateList"
+            />
+          </div>
+        </section>
+        <aside class="md:w-2/6 p-6 grid content-between gap-6">
+          <div class="grid gap-10">
+            <div class="grid gap-2 justify-items-center">
+              <h2
+                class="text-center text-sm text-blue-400 font-semibold uppercase"
+              >
+                {{ t("cv.sections.libraries") }}
+              </h2>
+              <app-tools [toolList]="tools.libraries" />
+            </div>
+
+            <div class="grid gap-2 justify-items-center">
+              <h2
+                class="text-center text-sm text-blue-400 font-semibold uppercase"
+              >
+                {{ t("cv.sections.platforms") }}
+              </h2>
+              <app-tools [toolList]="tools.platforms" />
+            </div>
+
+            <div class="grid gap-2 justify-items-center">
+              <h2
+                class="text-center text-sm text-blue-400 font-semibold uppercase"
+              >
+                {{ t("cv.sections.others") }}
+              </h2>
+              <app-tools [toolList]="tools.others" />
+            </div>
+          </div>
+          <div class="grid">
+            <small class="text-justify">
+              {{ t("cv.privacy") | capitalize }}
+            </small>
+            <img
+              class="justify-self-end w-32"
+              src="assets/img/signature/signature.png"
+              [title]="personalInfo.fullName"
+              [alt]="personalInfo.fullName + ' signature'"
+            />
+          </div>
+        </aside>
+      </article>
+    </main>
+  </div>
+</ng-container>

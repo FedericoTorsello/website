@@ -1,0 +1,15 @@
+.mockup-code {
+    
+    pre {
+        display: flex;
+        flex-direction: row;
+        align-items: baseline;
+        
+        code {
+            &.hljs {
+                background-color: var(--fallback-n,oklch(var(--n)/var(--tw-bg-opacity)));
+                padding: 0;
+            }
+        }
+    }
+}

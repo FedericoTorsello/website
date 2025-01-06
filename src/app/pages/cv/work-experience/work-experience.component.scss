@@ -1,0 +1,15 @@
+
+// to fix stroke on multiple pages :host cannot be used
+::ng-deep {
+    ng-icon {
+        &.stroke-none {
+            svg {
+                stroke: none;
+                
+                path{
+                    fill: currentColor;
+                }
+            }
+        }
+    }
+}

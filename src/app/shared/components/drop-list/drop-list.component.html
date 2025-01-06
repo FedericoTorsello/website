@@ -1,0 +1,10 @@
+<ul
+  cdkDropList
+  [cdkDropListData]="items()"
+  class="grid gap-2 text-justify"
+  (cdkDropListDropped)="drop($event)"
+>
+  @for (item of items(); track $index) {
+    <div class="example-box" cdkDrag>{{ item }}</div>
+  }
+</ul>

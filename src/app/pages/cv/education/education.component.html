@@ -1,0 +1,26 @@
+<div class="grid">
+  @for (education of educationList(); track $index) {
+    <div class="grid gap-1 small-caps">
+      <span class="font-black text-blue-500">
+        {{ education.qualification.name }}
+      </span>
+      <a [href]="education.institution.website">
+        {{ education.institution.name }}
+      </a>
+      <p>Profilo: {{ education.qualification.details }}</p>
+      <p>
+        Tesi:
+        <a
+          class="link-info"
+          [href]="education.thesis.link"
+          [title]="education.thesis.name"
+          target="_blank"
+        >
+          {{ education.thesis.name }}
+        </a>
+      </p>
+    </div>
+
+    <hr class="my-4 border-dashed border-blue-500" />
+  }
+</div>

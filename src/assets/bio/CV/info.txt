@@ -1,0 +1,33 @@
+approccio Domain Driven Design
+
+Front end
+moduli Nx,
+ultime novità del framework Angular
+architettura standalone
+signals.
+
+state management
+NgRx Store
+NgRx Signals.
+
+-----------
+
+Cosa cerchiamo:
+
+    Esperienza con JavaScript e TypeScript (sviluppo Front-End)
+    Conoscenza di HTML e CSS per la realizzazione di interfacce web responsive
+    Esperienza con Angular 2+ e RxJS
+    -------------->state management
+    -------------->unit testing
+    -------------->integration testing
+    -------------->Git
+    Autonomia nello sviluppo di applicazioni web scalabili
+
+Nice to have:
+
+    -------------->Esperienza con Signals (Angular 17+)
+    -------------->Esperienza con NgRx (Store e Signals)
+    -------------->Conoscenza di Nx e della migrazione da framework legacy (es. jQuery, AngularJS)
+    Esperienza nell’integrazione di RESTful API
+    Certificazioni in ambito tecnologico
+    -------------->Conoscenza di pratiche moderne di DevOps e strumenti associati

@@ -1,0 +1,15 @@
+<ul class="list-disc list-inside pl-1">
+  @for (certificate of certificatesList(); track $index) {
+    <li>
+      <a
+        class="link-info"
+        [href]="certificate.link"
+        target="_blank"
+      >
+        {{ certificate.name }}
+      </a>
+      emesso da:
+      {{ certificate.institution }}
+    </li>
+  }
+</ul>
