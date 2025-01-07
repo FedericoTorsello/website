@@ -591,7 +591,7 @@ export class CvComponent {
       link: 'https://www.hackerrank.com/certificates/01977157754c'
     },
     {
-      name: 'JavaScript (Intermediate) Certificate',
+      name: 'JavaScript (Intermediate)',
       institution: 'Hacker Rank',
       link: 'https://www.hackerrank.com/certificates/148ec144d370'
     },
