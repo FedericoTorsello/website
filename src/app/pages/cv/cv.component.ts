@@ -582,17 +582,22 @@ export class CvComponent {
   readonly certificateList: Certificate[] = [
     {
       name: 'Angular (Basic)',
-      institution: 'Hacker Rank',
+      institution: 'HackerRank',
       link: 'https://www.hackerrank.com/certificates/20d505b1bfa1'
     },
     {
+      name: 'Angular (Intermediate)',
+      institution: 'HackerRank',
+      link: 'https://www.hackerrank.com/certificates/ecfcaf465a14'
+    },
+    {
       name: 'JavaScript (Basic)',
-      institution: 'Hacker Rank',
+      institution: 'HackerRank',
       link: 'https://www.hackerrank.com/certificates/01977157754c'
     },
     {
       name: 'JavaScript (Intermediate)',
-      institution: 'Hacker Rank',
+      institution: 'HackerRank',
       link: 'https://www.hackerrank.com/certificates/148ec144d370'
     },
     {
