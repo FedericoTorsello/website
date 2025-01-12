@@ -5,7 +5,10 @@ import { RouterLink } from '@angular/router';
 
 @Component({
     selector: 'app-header',
-    imports: [TranslocoDirective, RouterLink],
+    imports: [
+      TranslocoDirective, 
+      // RouterLink
+    ],
     templateUrl: './header.component.html',
     styleUrls: ['./header.component.scss']
 })
