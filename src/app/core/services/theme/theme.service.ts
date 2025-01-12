@@ -23,6 +23,10 @@ export class ThemeService {
     return window.matchMedia('(prefers-color-scheme: dark)');
   }
 
+  private get printMode() {
+    return window.matchMedia('(print)');
+  }
+
   private get systemTheme(): Theme {
     return this.prefersColorScheme.matches ? Dark : Light;
   }
@@ -45,6 +49,15 @@ export class ThemeService {
     this.applyTheme(this.systemTheme);
 
     const systemThemeObservable$ = fromEvent<MediaQueryList>(this.prefersColorScheme, 'change');
+
+    // const beforePrint$ = fromEvent(window, 'beforeprint');
+    // beforePrint$.subscribe(() => console.log('aaaa'))
+
+    // const afterPrint$ = fromEvent(window, 'afterprint');
+    // afterPrint$.subscribe(() => {
+    //     this.toggleTheme();
+    // })
+
     systemThemeObservable$
       .pipe(takeUntilDestroyed())
       .subscribe(({ matches }) => {

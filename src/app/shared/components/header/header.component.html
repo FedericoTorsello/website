@@ -1,5 +1,5 @@
 <ng-container *transloco="let t">
-  <nav class="navbar px-6">
+  <nav class="navbar min-h-20 px-6">
     <div class="navbar-start">
       <!-- <div class="dropdown">
         <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
@@ -103,7 +103,7 @@
 
       <div class="flex">
         <label class="swap swap-rotate">
-          <input type="checkbox" />
+          <input type="checkbox" [checked]="!themeService.isDarkMode()"/>
 
           <!-- sun icon -->
           <svg

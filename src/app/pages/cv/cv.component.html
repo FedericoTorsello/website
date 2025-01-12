@@ -1,8 +1,8 @@
 <ng-container *transloco="let t; scope: 'cv'">
-  <div class="print:hidden grid justify-items-end">
-    <div>
-      <button class="capitalize" (click)="onPrint()">print</button>
-    </div>
+  <div class="sticky top-14 z-50 grid justify-items-end print:hidden">
+    <button class="capitalize" (click)="onPrint()">
+      {{ t("cv.print") }}
+    </button>
   </div>
 
   <div class="flex justify-center bg-transparent" data-theme="light">
@@ -55,7 +55,7 @@
         </section>
         <aside class="md:w-2/6 print:w-2/6 p-6 grid justify-items-center gap-6">
           <div
-            class="sm:hidden md:block print:block grid avatar"
+            class="hidden md:grid print:grid avatar"
             [title]="personalInfo.fullName"
           >
             <div

@@ -6,8 +6,7 @@
     "start": "nx serve --port 4201",
     "build": "nx build",
     "watch": "nx build --watch --configuration development",
-    "test": "nx test",
-    "vercel": "vercel"
+    "test": "nx test"
   },
   "private": true,
   "dependencies": {

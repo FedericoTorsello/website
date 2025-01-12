@@ -16,11 +16,5 @@
     "certifications": "certificazioni",
     "hobbies": "hobby e interessi"
   },
-  "social": {
-    "title": "social",
-    "value": {
-      "name": "Linkedin",
-      "url": "https://www.linkedin.com/in/federicotorsello"
-    }
-  }
+  "print": "stampa"
 }

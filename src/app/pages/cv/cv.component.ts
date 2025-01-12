@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { TranslocoDirective } from '@jsverse/transloco';
 import { WorkExperienceComponent } from "./work-experience/work-experience.component";
 import { Education, WorkExperience, Tool, Contacts, Certificate } from '../../models/cv-data.model';
@@ -33,6 +33,7 @@ import {
   diTailwindcssOriginal,
   diTypescriptOriginal,
 } from '@ng-icons/devicon/original';
+import { ThemeService } from '../../core/services/theme/theme.service';
 
 @Component({
   selector: 'app-cv',
@@ -49,6 +50,8 @@ import {
   styleUrl: './cv.component.scss'
 })
 export class CvComponent {
+  private themeService = inject(ThemeService);
+
   readonly Tools = Tools;
 
   readonly personalInfo = {
@@ -633,10 +636,14 @@ export class CvComponent {
   ];
 
   onPrint() {
+    const isDarkMode = this.themeService.isDarkMode();
+
     const originalTitle = document.title;
 
     window.onbeforeprint = () => document.title = `${this.personalInfo.fullName} - CV`;
-    window.onafterprint = () => document.title = originalTitle;
+    window.onafterprint = () => {
+      document.title = originalTitle;
+    }
 
     window.print();
   }
