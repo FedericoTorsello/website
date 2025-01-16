@@ -1,5 +1,6 @@
 <ng-container *transloco="let t; scope: 'cv'">
-  <div class="sticky top-14 z-50 grid justify-items-end print:hidden">
+  @let lang = toAvailableLanguages((translocoService.langChanges$ | async) || translocoService.getActiveLang());
+  <div class="sticky top-16 z-50 grid justify-items-end print:hidden">
     <button class="capitalize" (click)="onPrint()">
       {{ t("cv.print") }}
     </button>
@@ -40,7 +41,7 @@
               <h2 class="text-xl font-semibold uppercase">
                 {{ t("cv.sections.educationAndTraining") }}
               </h2>
-              <app-education [educationList]="educationList" />
+              <app-education [educationList]="educationList[lang]" />
             </div>
             <div>
               <h2 class="text-xl font-semibold uppercase">
@@ -48,7 +49,7 @@
               </h2>
               <app-work-experience
                 [timeline]="true"
-                [workExperienceList]="workExperienceList.pag1"
+                [workExperienceList]="workExperienceList.pag1[lang]"
               />
             </div>
           </div>
@@ -95,7 +96,7 @@
         >
           <app-work-experience
             [timeline]="true"
-            [workExperienceList]="workExperienceList.pag2"
+            [workExperienceList]="workExperienceList.pag2[lang]"
           />
           <div>
             <h2 class="text-xl font-semibold uppercase">

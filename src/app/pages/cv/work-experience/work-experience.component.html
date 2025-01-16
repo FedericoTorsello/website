@@ -1,5 +1,9 @@
 <ul class="relative border-s-4 border-blue-500">
-@for (workExperience of workExperienceList(); track $index; let last = $last) {
+  @for (
+    workExperience of workExperienceList();
+    track $index;
+    let last = $last
+  ) {
     @if (timeline()) {
       <li class="mb-10 ms-4">
         <span
@@ -21,8 +25,12 @@
             </a>
             <time class="flex gap-2 font-mono text-gray-500 mb-2">
               {{ workExperience.period.from }}
-              <span class="text-gray-500 mr-[4px]">&mdash;</span>
-              {{ workExperience.period.to }}
+              <span class="text-gray-500 mr-[4px]">
+                &mdash;
+              </span>
+              <span class="uppercase">
+                {{ workExperience.period.to }}
+              </span>
             </time>
           </div>
           <span

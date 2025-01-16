@@ -1,6 +1,7 @@
 
 import { TranslocoTestingModule, TranslocoTestingOptions } from '@jsverse/transloco';
 import it from '../assets/i18n/it.json';
+import config from '../../transloco.config';
 
 export function getTranslocoModule(options: TranslocoTestingOptions = {}) {
   return TranslocoTestingModule.forRoot({

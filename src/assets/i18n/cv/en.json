@@ -1,0 +1,20 @@
+{
+  "privacy": "In compliance with the Italian legislative Decree no. 196/2003 and GDPR (Reg. UE 2016/679), I hereby authorize you to use and process my personal details contained in this document",
+  "sections": {
+    "aboutMe": "about me",
+    "info": "info",
+    "contacts": "contacts",
+    "profile": "profile",
+    "skills": "skills",
+    "workExperience": "work experience",
+    "educationAndTraining": "education and training",
+    "languages": "programming languages",
+    "platforms": "platforms",
+    "frameworks": "frameworks",
+    "libraries": "libraries",
+    "others": "others",
+    "certifications": "certifications",
+    "hobbies": "hobbies"
+  },
+  "print": "print"
+}
