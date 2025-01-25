@@ -1,67 +1,72 @@
-<ul class="relative border-s-4 border-blue-500">
-  @for (
-    workExperience of workExperienceList();
-    track $index;
-    let last = $last
-  ) {
-    @if (timeline()) {
-      <li class="mb-10 ms-4">
-        <span
-          class="absolute flex items-center justify-center w-6 h-6 -start-[14px] bg-blue-50"
-        >
-          <ng-icon
-            name="remixCheckboxCircleFill"
-            style="filter: drop-shadow(1.5px 1.5px 1.5px #00000066)"
-          />
-        </span>
-        <h3 class="flex justify-between">
-          <div>
+<ng-container *transloco="let t; scope: 'workExperience'">
+  <ul class="relative border-s-4 border-blue-500">
+    @for (
+      workExperience of asWorkExperienceList(
+        t("workExperience.workExperience." + page())
+      );
+      track $index
+    ) {
+      @if (timeline()) {
+        <li class="mb-10 ms-4">
+          <span
+            class="absolute flex items-center justify-center w-6 h-6 -start-[14px] bg-blue-50"
+          >
+            <ng-icon
+              name="remixCheckboxCircleFill"
+              style="filter: drop-shadow(1.5px 1.5px 1.5px #00000066)"
+            />
+          </span>
+          <h3 class="flex justify-between">
+            <div>
+              <a
+                [href]="workExperience.employer.website"
+                class="hover:link-info italic font-black"
+                target="_blank"
+              >
+                {{ workExperience.employer.name }}
+              </a>
+              <time class="flex gap-2 font-mono text-gray-500 mb-2">
+                {{ workExperience.period.from }}
+                <span class="text-gray-500 mr-[4px]"> &mdash; </span>
+                <span class="uppercase">
+                  {{ workExperience.period.to }}
+                </span>
+              </time>
+            </div>
+            <span
+              class="font-black text-blue-500 text-right uppercase whitespace-pre-line"
+            >
+              {{ workExperience.jobTitle }}
+            </span>
+          </h3>
+          <ul class="list-disc list-inside text-sm">
+            @for (details of workExperience.details; track $index) {
+              <li>
+                {{ details }}
+              </li>
+            }
+          </ul>
+        </li>
+      } @else {
+        <div class="flex gap-6 text-lg">
+          <div class="self-center">
+            {{ workExperience.period.from }} &mdash;
+            <span class="capitalize">{{ workExperience.period.to }}</span>
+          </div>
+          <div class="grid">
+            <div class="font-black">{{ workExperience.jobTitle }}</div>
             <a
-              class="hover:link-info italic font-black"
               [href]="workExperience.employer.website"
+              class="hover:link-info italic font-black"
               target="_blank"
             >
               {{ workExperience.employer.name }}
             </a>
-            <time class="flex gap-2 font-mono text-gray-500 mb-2">
-              {{ workExperience.period.from }}
-              <span class="text-gray-500 mr-[4px]">
-                &mdash;
-              </span>
-              <span class="uppercase">
-                {{ workExperience.period.to }}
-              </span>
-            </time>
           </div>
-          <span
-            class="font-black text-blue-500 text-right uppercase whitespace-pre-line"
-          >
-            {{ workExperience.jobTitle }}
-          </span>
-        </h3>
-        <ul class="list-disc list-inside text-sm">
-          @for (details of workExperience.details; track $index) {
-            <li>
-              {{ details }}
-            </li>
-          }
-        </ul>
-      </li>
-    } @else {
-      <div class="flex gap-6 text-lg">
-        <div class="self-center">
-          {{ workExperience.period.from }} &mdash;
-          <span class="capitalize">{{ workExperience.period.to }}</span>
         </div>
-        <div class="grid">
-          <div class="font-black">{{ workExperience.jobTitle }}</div>
-          <a [href]="workExperience.employer.website" target="_blank">
-            {{ workExperience.employer.name }}
-          </a>
-        </div>
-      </div>
 
-      <div class="font-bold">{{ workExperience.description }}</div>
+        <div class="font-bold">{{ workExperience.description }}</div>
+      }
     }
-  }
-</ul>
+  </ul>
+</ng-container>

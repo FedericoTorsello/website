@@ -100,6 +100,9 @@
         ],
         "scripts": []
       }
+    },
+    "transloco:optimize": {
+      "command": "transloco-optimize dist/website/assets/i18n"
     }
   }
 }

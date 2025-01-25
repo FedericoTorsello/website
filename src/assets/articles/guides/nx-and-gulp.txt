@@ -1,0 +1,15 @@
+per utilizzare gulp in un progetto nx
+
+creare il progetto angular
+creare una libreria con nx @nx/js
+questo creerà anche un package.json
+
+si può decidere se aggiungere le devDependencies in questo pacchetto o sfruttare quello esterno globale
+
+    "gulp": "^5.0.0",
+    "@types/gulp": "^4.0.17",
+
+extra:
+    "@types/fs-extra": "^11.0.4",
+    "execa": "^9.5.2"
+    "gulp-execa": "^8.0.0",

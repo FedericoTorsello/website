@@ -3,7 +3,6 @@ import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
 import { MockupCodeComponent } from './shared/components/mockup-code/mockup-code.component';
-import { NgClass } from '@angular/common';
 
 @Component({
     selector: 'app-root',
@@ -11,8 +10,7 @@ import { NgClass } from '@angular/common';
         HeaderComponent,
         RouterOutlet,
         // MockupCodeComponent,
-        // FooterComponent,
-        // NgClass
+        // FooterComponent
     ],
     templateUrl: './app.component.html',
     styleUrl: './app.component.scss'

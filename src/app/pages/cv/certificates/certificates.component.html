@@ -1,15 +1,13 @@
-<ul class="list-disc list-inside pl-1">
-  @for (certificate of certificatesList(); track $index) {
-    <li>
-      <a
-        class="link-info"
-        [href]="certificate.link"
-        target="_blank"
-      >
-        {{ certificate.name }}
-      </a>
-      emesso da:
-      {{ certificate.institution }}
-    </li>
-  }
-</ul>
+<ng-container *transloco="let t; scope: 'certificates'">
+  <ul class="list-disc list-inside pl-1">
+    @for (certificate of certificateList; track $index) {
+      <li>
+        <a class="link-info" [href]="certificate.link" target="_blank">
+          {{ certificate.name }}
+        </a>
+        {{ t("certificates.issuedBy") }}:
+        {{ certificate.institution }}
+      </li>
+    }
+  </ul>
+</ng-container>

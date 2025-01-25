@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { TranslocoDirective, TranslocoService } from '@jsverse/transloco';
 import { WorkExperienceComponent } from "./work-experience/work-experience.component";
-import { Education, WorkExperience, Tool, Contacts, Certificate, ByLang } from '../../models/cv-data.model';
+import { PersonalInfo, Tool } from '../../models/cv-data.model';
 import { EducationComponent } from './education/education.component';
 import { ContactsComponent } from "./contacts/contacts.component";
 import { ToolsComponent } from "./tools/tools.component";
@@ -33,9 +33,6 @@ import {
   diTailwindcssOriginal,
   diTypescriptOriginal,
 } from '@ng-icons/devicon/original';
-import { ThemeService } from '../../core/services/theme/theme.service';
-import { AsyncPipe } from '@angular/common';
-import { Lang } from '../../models/lang.model';
 
 @Component({
   selector: 'app-cv',
@@ -47,262 +44,21 @@ import { Lang } from '../../models/lang.model';
     ToolsComponent,
     CapitalizePipe,
     CertificatesComponent,
-    AsyncPipe
   ],
   templateUrl: './cv.component.html',
   styleUrl: './cv.component.scss'
 })
 export class CvComponent {
-  private themeService = inject(ThemeService);
-  translocoService = inject(TranslocoService);
-
-  toAvailableLanguages = (rawLang: string): Lang => rawLang as Lang;
+  public translocoService = inject(TranslocoService);
 
   readonly Tools = Tools;
 
-  readonly personalInfo = {
+  readonly personalInfo: PersonalInfo = {
     name: 'Federico',
     surname: 'Torsello',
     get fullName() {
       return `${this.name} ${this.surname}`;
     },
-  };
-
-  readonly contacts: Contacts = {
-    phone: '+39 327 05 99 329',
-    email: 'federico127001@gmail.com',
-    website: {
-      shortLink: 'vercel/federicotorsello',
-      fullLink: 'https://website-federicotorsellos-projects.vercel.app',
-    },
-    linkedin: {
-      shortLink: 'linkedin/federicotorsello',
-      fullLink: 'https://www.linkedin.com/in/federicotorsello',
-    },
-    github: {
-      shortLink: 'github/FedericoTorsello',
-      fullLink: 'https://github.com/FedericoTorsello',
-    },
-  };
-
-  readonly educationList: ByLang<Education> = {
-    it: [
-      {
-        qualification: {
-          name: 'Laurea Magistrale in Ingegneria e Scienze Informatiche',
-          details: "Ingegneria dei sistemi software per l'ICT"
-        },
-        institution: {
-          name: 'Università di Bologna',
-        },
-        thesis: {
-          name: 'Progettazione e realizzazione di un Indoor Positioning System basato su geomagnetismo e sensor fusion',
-          link: 'https://drive.google.com/file/d/1Kcv2qO_BBBeQRGyYlGV7KIvCHQuWT3WM/view?usp=sharing'
-        }
-      },
-      {
-        qualification: {
-          name: 'Laurea Triennale in Informatica Applicata',
-          details: 'Domotica'
-        },
-        institution: {
-          name: 'Università degli Studi di Urbino "Carlo Bo"',
-        },
-        thesis: {
-          name: 'Accesso alla rete Internet attraverso il protocollo Bluetooth',
-          link: 'https://drive.google.com/file/d/0B-NHZ__iPz66VHd5VzlPNV8xbGs/view?usp=sharing'
-        }
-      }
-    ],
-    en: [
-      {
-      qualification: {
-        name: "Master's Degree in Engineering and Computer Science",
-        details: "Software systems engineering for ICT"
-      },
-      institution: {
-        name: 'University of Bologna',
-      },
-      thesis: {
-        name: 'Progettazione e realizzazione di un Indoor Positioning System basato su geomagnetismo e sensor fusion',
-        link: 'https://drive.google.com/file/d/1Kcv2qO_BBBeQRGyYlGV7KIvCHQuWT3WM/view?usp=sharing'
-      }
-    },
-    {
-      qualification: {
-        name: "Bachelor's Degree in Applied Computer Science",
-        details: 'Home automation'
-      },
-      institution: {
-        name: 'University of Urbino "Carlo Bo"',
-      },
-      thesis: {
-        name: 'Accesso alla rete Internet attraverso il protocollo Bluetooth',
-        link: 'https://drive.google.com/file/d/0B-NHZ__iPz66VHd5VzlPNV8xbGs/view?usp=sharing'
-      }
-    }
-  ]
-  };
-
-  readonly workExperienceList: Record<'pag1' | 'pag2', ByLang<WorkExperience>> = {
-    pag1: {
-      it: [
-        {
-          period: {
-            from: 2022,
-            to: 'in corso'
-          },
-          jobTitle: 'software developer',
-          employer: {
-            name: 'ACSoftware S.r.l'
-          },
-          details: [
-            'Sviluppato nuove feature per un portale Angular di gestione ferroviaria',
-            'Sviluppato e mantenuto portlets Angular per un portale di emissione Flexible Benefits aziendali basato su Liferay',
-            'Sviluppato librerie Angular per progetti interni e cliente',
-            'Refactoring e sviluppo di componenti Angular per un sistema di prenotazioni utenti (agenti o clienti)',
-            'Sviluppato un componente in AngularJs ed Ionic per il controllo domotico del cronotermostato attraverso una app multi-piattaforma',
-            'Sviluppato portlets Angular eseguite su piattaforma Liferay per la gestione delle emergenze e dei servizi professionali di supporto alle emergenze',
-            'Sviluppato widget su piattaforma HCL DX',
-            'Collaborato alla realizzazione e al refactoring di un editor vettoriale SVG in JavaScript Vanilla'
-          ]
-        }
-      ],
-      en: [
-        {
-          period: {
-            from: 2022,
-            to: 'in progress'
-          },
-          jobTitle: 'software developer',
-          employer: {
-            name: 'ACSoftware S.r.l'
-          },
-          details: [
-            'Sviluppato nuove feature per un portale Angular di gestione ferroviaria',
-            'Sviluppato e mantenuto portlets Angular per un portale di emissione Flexible Benefits aziendali basato su Liferay',
-            'Sviluppato librerie Angular per progetti interni e cliente',
-            'Refactoring e sviluppo di componenti Angular per un sistema di prenotazioni utenti (agenti o clienti)',
-            'Sviluppato un componente in AngularJs ed Ionic per il controllo domotico del cronotermostato attraverso una app multi-piattaforma',
-            'Sviluppato portlets Angular eseguite su piattaforma Liferay per la gestione delle emergenze e dei servizi professionali di supporto alle emergenze',
-            'Sviluppato widget su piattaforma HCL DX',
-            'Collaborato alla realizzazione e al refactoring di un editor vettoriale SVG in JavaScript Vanilla'
-          ]
-        }
-      ]
-    },
-    pag2: {
-      it: [
-        {
-          period: {
-            from: 2021,
-            to: 2021
-          },
-          jobTitle: 'software developer',
-          employer: {
-            name: 'Revevol Italia'
-          },
-          details: [
-            'Sviluppate nuove feature per un gestore automatizzato di gruppi Google Workspace utilizzando Java e API AODocs',
-            'Realizzato un nuovo gestore automatizzato per la sincronizzazione degli account del personale su Facebook Workplace utilizzando Java e Google Cloud Platform',
-            'Sviluppato componenti Angular per form e consultazione dati interfacciati con API AODocs',
-            'Sviluppati custom scripts Java per il download di file e gestione dati su da Google Drive attraverso API AODocs',
-            'Sviluppati siti vetrina con Awesome Table',
-            'Partecipato alla realizzazione di una app multi-piattaforma con Flutter SDK (Android, iOS) per la gestione degli ordini di cibo e medicinali per i centri di vendita veterinari',
-            'Sviluppato un parser HTML in Java per automatizzare il processo di inserimento dati',
-            'Consulenza per sviluppo di script con Google Apps Script'
-          ]
-        },
-        {
-          period: {
-            from: 2019,
-            to: 2020
-          },
-          jobTitle: 'ICT consultant\nsoftware developer',
-          employer: {
-            name: 'Alten Italia'
-          },
-          details: [
-            'Sviluppato un installer wizard per sistemi Windows utilizzando WiX Toolset',
-            'Sviluppata una UI con Windows Presentation Foundation per il nuovo installer',
-            'Utilizzo/gestione di software specifici dell\'ambiente ferroviario',
-            'Creazione di percorsi traccia treno Bibbiena-Poppi-Porrena'
-          ]
-        },
-        {
-          period: {
-            from: 2017,
-            to: 2019
-          },
-          jobTitle: 'software developer',
-          employer: {
-            name: 'GetConnected S.r.l - Gruppo EURIS',
-          },
-          details: [
-            'Partecipato allo sviluppo di un\'applicazione mobile cross platform (Android, iOS) con Apache Cordova, AngularJS e Bootstrap',
-            'Sviluppato plugin Apache Cordova per sistemi Android e iOS',
-            'Sviluppato interfacce web a servizi proprietari finanziari con Angular',
-            'Manutenzione di un sistema documentale con Java e Oracle PL/SQL',
-            'Sviluppato un plugin per JIRA e Confluence in Java e Spring',
-          ]
-        }
-      ],
-      en: [
-        {
-          period: {
-            from: 2021,
-            to: 2021
-          },
-          jobTitle: 'software developer',
-          employer: {
-            name: 'Revevol Italia'
-          },
-          details: [
-            'Sviluppate nuove feature per un gestore automatizzato di gruppi Google Workspace utilizzando Java e API AODocs',
-            'Realizzato un nuovo gestore automatizzato per la sincronizzazione degli account del personale su Facebook Workplace utilizzando Java e Google Cloud Platform',
-            'Sviluppato componenti Angular per form e consultazione dati interfacciati con API AODocs',
-            'Sviluppati custom scripts Java per il download di file e gestione dati su da Google Drive attraverso API AODocs',
-            'Sviluppati siti vetrina con Awesome Table',
-            'Partecipato alla realizzazione di una app multi-piattaforma con Flutter SDK (Android, iOS) per la gestione degli ordini di cibo e medicinali per i centri di vendita veterinari',
-            'Sviluppato un parser HTML in Java per automatizzare il processo di inserimento dati',
-            'Consulenza per sviluppo di script con Google Apps Script'
-          ]
-        },
-        {
-          period: {
-            from: 2019,
-            to: 2020
-          },
-          jobTitle: 'ICT consultant\nsoftware developer',
-          employer: {
-            name: 'Alten Italia'
-          },
-          details: [
-            'Sviluppato un installer wizard per sistemi Windows utilizzando WiX Toolset',
-            'Sviluppata una UI con Windows Presentation Foundation per il nuovo installer',
-            'Utilizzo/gestione di software specifici dell\'ambiente ferroviario',
-            'Creazione di percorsi traccia treno Bibbiena-Poppi-Porrena'
-          ]
-        },
-        {
-          period: {
-            from: 2017,
-            to: 2019
-          },
-          jobTitle: 'software developer',
-          employer: {
-            name: 'GetConnected S.r.l - Gruppo EURIS',
-          },
-          details: [
-            'Partecipato allo sviluppo di un\'applicazione mobile cross platform (Android, iOS) con Apache Cordova, AngularJS e Bootstrap',
-            'Sviluppato plugin Apache Cordova per sistemi Android e iOS',
-            'Sviluppato interfacce web a servizi proprietari finanziari con Angular',
-            'Manutenzione di un sistema documentale con Java e Oracle PL/SQL',
-            'Sviluppato un plugin per JIRA e Confluence in Java e Spring',
-          ]
-        }
-      ]
-    }
   };
 
   readonly tools: Record<'languages' | 'platforms' | 'libraries' | 'frameworks' | 'others', Tool[]> = {
@@ -697,59 +453,6 @@ export class CvComponent {
       },
     ]
   };
-
-  readonly certificateList: Certificate[] = [
-    {
-      name: 'Angular (Basic)',
-      institution: 'HackerRank',
-      link: 'https://www.hackerrank.com/certificates/20d505b1bfa1'
-    },
-    {
-      name: 'Angular (Intermediate)',
-      institution: 'HackerRank',
-      link: 'https://www.hackerrank.com/certificates/ecfcaf465a14'
-    },
-    {
-      name: 'JavaScript (Basic)',
-      institution: 'HackerRank',
-      link: 'https://www.hackerrank.com/certificates/01977157754c'
-    },
-    {
-      name: 'JavaScript (Intermediate)',
-      institution: 'HackerRank',
-      link: 'https://www.hackerrank.com/certificates/148ec144d370'
-    },
-    {
-      name: 'Responsive Web Design',
-      institution: 'freeCodeCamp',
-      link: 'https://www.freecodecamp.org/certification/fcc8a85a1a4-e90a-4e74-a1f7-1e5513baf409/responsive-web-design'
-    },
-    {
-      name: 'Javascript Algorithms and Data Structures',
-      institution: 'freeCodeCamp',
-      link: 'https://www.freecodecamp.org/certification/fcc8a85a1a4-e90a-4e74-a1f7-1e5513baf409/javascript-algorithms-and-data-structures-v8'
-    },
-    {
-      name: 'Front End Development Libraries',
-      institution: 'freeCodeCamp',
-      link: 'https://www.freecodecamp.org/certification/fcc8a85a1a4-e90a-4e74-a1f7-1e5513baf409/front-end-development-libraries'
-    },
-    {
-      name: 'Practical Deep Learning: Geolocalizzazione indoor',
-      institution: 'Udemy',
-      link: 'https://www.udemy.com/certificate/UC-54OI12DB'
-    },
-    {
-      name: 'GCP Developer Enablement Program',
-      institution: 'Codemotion',
-      link: 'https://drive.google.com/file/d/1QiTUDgwwJvkkC7NY-culoNuMHfGM8f5N/view?usp=sharing'
-    },
-    {
-      name: 'Inglese Livello B2 - BSG Level 4',
-      institution: 'British School Group',
-      link: 'https://drive.google.com/file/d/1at8gtpzqfP8VdDKWOfsYAfvRi7F3zzme/view?usp=sharing'
-    },
-  ];
 
   onPrint() {
     const originalTitle = document.title;

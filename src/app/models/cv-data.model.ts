@@ -1,8 +1,7 @@
-type Info = {
+export type PersonalInfo = {
   name: string;
   surname: string;
   fullName: string;
-  jobTitle: string;
 }
 
 export type Contacts = {
@@ -30,13 +29,11 @@ export type WorkExperience = {
   jobTitle: string;
   employer: {
     name: string;
-    website?: string;
+    website: string;
   };
   description?: string;
   details: string[];
 }
-
-export type ByLang<T> = Record<'it'|'en', T[]>;
 
 export type Icon = {
   svg: string;
@@ -78,7 +75,4 @@ export type Certificate = {
   link: string;
 }
 
-type Hobby = {
-  name: string;
-  icon?: string;
-}
+export type Page = 'page1' | 'page2';

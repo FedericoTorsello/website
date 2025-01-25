@@ -1,6 +1,12 @@
 {
-    "info": {
-        "name": "Federico",
-        "surname": "Torsello"
+  "langs": {
+    "it": {
+      "short": "it",
+      "full": "Italiano"
+    },
+    "en": {
+      "short": "en",
+      "full": "English"
     }
+  }
 }
