@@ -1,13 +1,15 @@
 <ng-container *transloco="let t; scope: 'workExperience'">
-  <ul class="relative border-s-4 border-blue-500">
+  <ul class="relative border-s-4 border-blue-500 h-full">
+    @let workExperienceList = asWorkExperienceList(
+      t("workExperience.workExperience." + page())
+    );
     @for (
-      workExperience of asWorkExperienceList(
-        t("workExperience.workExperience." + page())
-      );
-      track $index
+      workExperience of workExperienceList;
+      track $index;
+      let last = $last
     ) {
       @if (timeline()) {
-        <li class="mb-10 ms-4">
+        <li class="ms-4" [class.mb-6]="workExperienceList.length > 1">
           <span
             class="absolute flex items-center justify-center w-6 h-6 -start-[14px] bg-blue-50"
           >

@@ -21,7 +21,6 @@ import { TranslocoDirective, TranslocoService } from '@jsverse/transloco';
   styleUrl: './work-experience.component.scss'
 })
 export class WorkExperienceComponent implements OnInit {
-
   readonly translocoService = inject(TranslocoService);
 
   readonly timeline = input(true);

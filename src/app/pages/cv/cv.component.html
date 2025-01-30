@@ -1,5 +1,5 @@
 <ng-container *transloco="let t; scope: 'cv'">
-  <div class="sticky top-16 z-50 grid justify-items-end print:hidden">
+  <div class="sticky top-16 z-10 grid justify-items-end print:hidden">
     <button class="capitalize" (click)="onPrint()">
       {{ t("cv.print") }}
     </button>
@@ -40,7 +40,6 @@
               <h2 class="text-xl font-semibold uppercase">
                 {{ t("cv.sections.educationAndTraining") }}
               </h2>
-              <!-- <app-education [educationList]="educationList[lang]" /> -->
               <app-education />
             </div>
             <div>
@@ -92,7 +91,7 @@
         class="flex flex-col md:flex-row md:h-[297mm] print:flex-row print:h-[297mm] bg-white shadow-xl"
       >
         <section
-          class="md:w-4/6 print:w-4/6 py-10 px-4 bg-blue-50 border-r-2 border-r-blue-50 grid"
+          class="md:w-4/6 print:w-4/6 py-10 px-4 bg-blue-50 border-r-2 border-r-blue-50 grid gap-5"
         >
           <app-work-experience
             [timeline]="true"

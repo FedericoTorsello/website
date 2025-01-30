@@ -19,36 +19,36 @@ enum ThemeExtraInfo {
 export class ThemeService {
   Theme = Theme;
 
-  private get prefersColorScheme() {
+  get #prefersColorScheme() {
     return window.matchMedia('(prefers-color-scheme: dark)');
   }
 
-  private get printMode() {
+  get #printMode() {
     return window.matchMedia('(print)');
   }
 
-  private get systemTheme(): Theme {
-    return this.prefersColorScheme.matches ? Dark : Light;
+  get systemTheme(): Theme {
+    return this.#prefersColorScheme.matches ? Dark : Light;
   }
 
-  private theme = signal(this.systemTheme);
+  #theme = signal(this.systemTheme);
 
-  isDarkMode = computed(() => this.theme() === Dark);
+  isDarkMode = computed(() => this.#theme() === Dark);
 
   toggleTheme(): void {
     this.applyTheme(this.isDarkMode() ? Light : Dark);
   }
 
   applyTheme(theme: Theme) {
-    this.theme.update(() => theme);
+    this.#theme.update(() => theme);
 
-    document.documentElement.setAttribute(ThemeExtraInfo.DataTheme, this.theme());
+    document.documentElement.setAttribute(ThemeExtraInfo.DataTheme, this.#theme());
   }
 
   constructor() {
     this.applyTheme(this.systemTheme);
 
-    const systemThemeObservable$ = fromEvent<MediaQueryList>(this.prefersColorScheme, 'change');
+    const systemThemeObservable$ = fromEvent<MediaQueryList>(this.#prefersColorScheme, 'change');
 
     // const beforePrint$ = fromEvent(window, 'beforeprint');
     // beforePrint$.subscribe(() => console.log('aaaa'))
