@@ -30,6 +30,11 @@ export class WorkExperienceComponent implements OnInit {
   asWorkExperienceList = (value: WorkExperience[]) => value;
 
   ngOnInit(): void {
+    this.initItLanguage();
+    this.initEnLanguage();
+  }
+
+  private initItLanguage() {
     const workExperienceListIT: Record<Page, WorkExperience[]> = {
       page1: [
         {
@@ -52,9 +57,7 @@ export class WorkExperienceComponent implements OnInit {
             'Sviluppato widget su piattaforma HCL DX',
             'Collaborato alla realizzazione e al refactoring di un editor vettoriale SVG in JavaScript Vanilla'
           ]
-        }
-      ],
-      page2: [
+        },
         {
           period: {
             from: 2021,
@@ -76,6 +79,8 @@ export class WorkExperienceComponent implements OnInit {
             'Consulenza per sviluppo di script con Google Apps Script'
           ]
         },
+      ],
+      page2: [
         {
           period: {
             from: 2019,
@@ -114,6 +119,10 @@ export class WorkExperienceComponent implements OnInit {
       ]
     };
 
+    this.translocoService.setTranslation({ workExperience: workExperienceListIT }, 'workExperience/it');
+  }
+
+  private initEnLanguage() {
     const workExperienceListEN: Record<Page, WorkExperience[]> = {
       page1: [
         {
@@ -136,9 +145,7 @@ export class WorkExperienceComponent implements OnInit {
             'Developed widget on HCL DX platform',
             'Collaborated on building and refactoring an SVG vector editor in Vanilla JavaScript'
           ]
-        }
-      ],
-      page2: [
+        },
         {
           period: {
             from: 2021,
@@ -160,6 +167,8 @@ export class WorkExperienceComponent implements OnInit {
             'Consulting for script development with Google Apps Script'
           ]
         },
+      ],
+      page2: [
         {
           period: {
             from: 2019,
@@ -198,7 +207,6 @@ export class WorkExperienceComponent implements OnInit {
       ]
     };
 
-    this.translocoService.setTranslation({ workExperience: workExperienceListIT }, 'workExperience/it');
     this.translocoService.setTranslation({ workExperience: workExperienceListEN }, 'workExperience/en');
   }
 }

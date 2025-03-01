@@ -38,18 +38,9 @@
             </div>
             <div>
               <h2 class="text-xl font-semibold uppercase">
-                {{ t("cv.sections.educationAndTraining") }}
-              </h2>
-              <app-education />
-            </div>
-            <div>
-              <h2 class="text-xl font-semibold uppercase">
                 {{ t("cv.sections.workExperience") }}
               </h2>
-              <app-work-experience
-                [timeline]="true"
-                [page]="'page1'"
-              />
+              <app-work-experience [timeline]="true" [page]="'page1'" />
             </div>
           </div>
         </section>
@@ -93,10 +84,13 @@
         <section
           class="md:w-4/6 print:w-4/6 py-10 px-4 bg-blue-50 border-r-2 border-r-blue-50 grid gap-5"
         >
-          <app-work-experience
-            [timeline]="true"
-            [page]="'page2'"
-          />
+          <app-work-experience [timeline]="true" [page]="'page2'" />
+          <div>
+            <h2 class="text-xl font-semibold uppercase">
+              {{ t("cv.sections.educationAndTraining") }}
+            </h2>
+            <app-education />
+          </div>
           <div>
             <h2 class="text-xl font-semibold uppercase">
               {{ t("cv.sections.certifications") }}
