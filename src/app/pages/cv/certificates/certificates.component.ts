@@ -13,6 +13,11 @@ import { Certificate } from '../../../models/cv-data.model';
 export class CertificatesComponent {
   readonly certificateList: Certificate[] = [
     {
+      name: 'C# (Basic)',
+      institution: 'HackerRank',
+      link: 'https://www.hackerrank.com/certificates/13cda3190fa1'
+    },
+    {
       name: 'Foundational C# with Microsoft',
       institution: 'freeCodeCamp',
       link: 'https://www.freecodecamp.org/certification/fcc8a85a1a4-e90a-4e74-a1f7-1e5513baf409/foundational-c-sharp-with-microsoft'
