@@ -156,7 +156,7 @@ export class CvComponent {
       {
         name: 'HyperIoT',
         icon: {
-          src: 'assets/img/tools/hyperiot.png'
+          src: 'img/tools/hyperiot.png'
         }
       },
       {
@@ -206,7 +206,7 @@ export class CvComponent {
       {
         name: 'Google Apps Script',
         icon: {
-          src: 'assets/img/tools/apps_script.png'
+          src: 'img/tools/apps_script.png'
         }
       },
     ],
@@ -259,15 +259,15 @@ export class CvComponent {
       {
         name: 'J2ME',
         icon: {
-          src: 'assets/img/tools/j2me.png'
+          src: 'img/tools/j2me.png'
         }
       },
-      {
-        name: 'WiX Toolset',
-        icon: {
-          src: 'assets/img/tools/wix.png'
-        },
-      },
+      // {
+      //   name: 'WiX Toolset',
+      //   icon: {
+      //     src: 'img/tools/wix.png'
+      //   },
+      // },
     ],
     libraries: [
       {
@@ -325,7 +325,7 @@ export class CvComponent {
       {
         name: 'Transloco Angular i18n',
         icon: {
-          src: 'assets/img/tools/transloco.png'
+          src: 'img/tools/transloco.png'
         }
       },
       {
@@ -343,7 +343,7 @@ export class CvComponent {
       {
         name: 'LeafletJS',
         icon: {
-          src: 'assets/img/tools/leafletjs.png'
+          src: 'img/tools/leafletjs.png'
         }
       },
       // {
@@ -361,7 +361,7 @@ export class CvComponent {
       {
         name: 'JSoup',
         icon: {
-          src: 'assets/img/tools/jsoup.jpg'
+          src: 'img/tools/jsoup.jpg'
         }
       },
       {

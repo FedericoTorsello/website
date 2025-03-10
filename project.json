@@ -22,10 +22,10 @@
         "tsConfig": "tsconfig.app.json",
         "inlineStyleLanguage": "scss",
         "assets": [
-          "src/assets",
           {
             "glob": "**/*",
-            "input": "public"
+            "input": "public",
+            "output": "/"
           }
         ],
         "styles": [
@@ -102,7 +102,7 @@
       }
     },
     "transloco:optimize": {
-      "command": "transloco-optimize dist/website/assets/i18n"
+      "command": "transloco-optimize dist/website/public/i18n"
     }
   }
 }

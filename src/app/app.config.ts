@@ -49,7 +49,7 @@ export const appConfig: ApplicationConfig = {
       provide: HIGHLIGHT_OPTIONS,
       useValue: {
         // ...
-        themePath: 'assets/styles/solarized-dark.css',
+        themePath: 'styles/solarized-dark.css',
       },
     },
     provideHighlightOptions({

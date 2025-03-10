@@ -9,7 +9,7 @@ export class TranslocoHttpLoader implements TranslocoLoader {
 
   getTranslation(langPath: string): Observable<Translation> {
     return this.#http
-      .get<Translation>(`./assets/i18n/${langPath}.json`)
+      .get<Translation>(`i18n/${langPath}.json`)
       .pipe(
         catchError(() => of({}))
       );
