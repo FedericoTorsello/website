@@ -262,12 +262,12 @@ export class CvComponent {
           src: 'img/tools/j2me.png'
         }
       },
-      // {
-      //   name: 'WiX Toolset',
-      //   icon: {
-      //     src: 'img/tools/wix.png'
-      //   },
-      // },
+      {
+        name: 'WiX Toolset',
+        icon: {
+          src: 'img/tools/wix.png'
+        },
+      },
     ],
     libraries: [
       {
