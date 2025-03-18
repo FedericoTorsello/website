@@ -43,12 +43,12 @@ import {
     ContactsComponent,
     ToolsComponent,
     CapitalizePipe,
-    CertificatesComponent,
+    CertificatesComponent
   ],
   templateUrl: './cv.component.html',
   styleUrl: './cv.component.scss'
 })
-export class CvComponent {
+export default class CvComponent {
   public translocoService = inject(TranslocoService);
 
   readonly Tools = Tools;
@@ -61,8 +61,8 @@ export class CvComponent {
     },
   };
 
-  readonly tools: Record<'languages' | 'platforms' | 'libraries' | 'frameworks' | 'others', Tool[]> = {
-    languages: [{
+  readonly tools: Record<'technologies' | 'platforms' | 'libraries' | 'frameworks' | 'others', Tool[]> = {
+    technologies: [{
       name: 'TypeScript',
       icon: {
         src: diTypescriptOriginal,

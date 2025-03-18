@@ -1,6 +1,10 @@
 <ng-container *transloco="let t; scope: 'cv'">
-  <div class="sticky top-16 z-10 grid justify-items-end print:hidden">
-    <button class="capitalize" (click)="onPrint()">
+  <div class="p-2 sticky top-16 z-10 grid justify-items-end print:hidden">
+    <button
+      class="btn btn-dash btn-info bg-white capitalize"
+      (click)="onPrint()"
+      [title]="t('cv.print') | capitalize"
+    >
       {{ t("cv.print") }}
     </button>
   </div>
@@ -8,7 +12,7 @@
   <div class="flex justify-center bg-transparent" data-theme="light">
     <main
       id="cv"
-      class="grid md:gap-2 md:w-[210mm] md:min-w-[210mm] md:min-h-[297mm] print:gap-0 print:w-[210mm] print:min-w-[210mm] print:min-h-[297mm]"
+      class="grid w-full md:gap-2 md:w-[210mm] md:min-w-[210mm] md:min-h-[297mm] print:gap-0 print:w-[210mm] print:min-w-[210mm] print:min-h-[297mm]"
     >
       <article
         id="pag1"
@@ -62,9 +66,9 @@
             <h2
               class="text-center text-sm text-blue-400 font-semibold uppercase"
             >
-              {{ t("cv.sections.languages") }}
+              {{ t("cv.sections.technologies") }}
             </h2>
-            <app-tools [toolList]="tools.languages" />
+            <app-tools [toolList]="tools.technologies" />
           </div>
 
           <div class="grid gap-2 justify-items-center">
@@ -82,23 +86,25 @@
         class="flex flex-col md:flex-row md:h-[297mm] print:flex-row print:h-[297mm] bg-white shadow-xl"
       >
         <section
-          class="md:w-4/6 print:w-4/6 py-10 px-4 bg-blue-50 border-r-2 border-r-blue-50 grid gap-5"
+          class="md:w-4/6 print:w-4/6 print:p-5 py-8 px-5 bg-blue-50 border-r-2 border-r-blue-50 grid gap-4"
         >
           <app-work-experience [timeline]="true" [page]="'page2'" />
           <div>
-            <h2 class="text-xl font-semibold uppercase">
-              {{ t("cv.sections.educationAndTraining") }}
-            </h2>
-            <app-education />
-          </div>
-          <div>
-            <h2 class="text-xl font-semibold uppercase">
-              {{ t("cv.sections.certifications") }}
-            </h2>
-            <app-certificates class="text-sm" />
+            <div>
+              <h2 class="text-xl font-semibold uppercase">
+                {{ t("cv.sections.educationAndTraining") }}
+              </h2>
+              <app-education />
+            </div>
+            <div>
+              <h2 class="text-xl font-semibold uppercase">
+                {{ t("cv.sections.certifications") }}
+              </h2>
+              <app-certificates class="text-sm" />
+            </div>
           </div>
         </section>
-        <aside class="md:w-2/6 print:w-2/6 p-6 grid content-between gap-6">
+        <aside class="md:w-2/6 print:w-2/6 pt-4 p-6 grid content-between gap-6">
           <div class="grid gap-10">
             <div class="grid gap-2 justify-items-center">
               <h2
@@ -135,7 +141,7 @@
               class="justify-self-end w-32"
               src="img/signature/signature.png"
               [title]="personalInfo.fullName"
-              [alt]="personalInfo.fullName + ' signature'"
+              [alt]="`${personalInfo.fullName} signature`"
             />
           </div>
         </aside>

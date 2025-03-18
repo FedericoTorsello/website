@@ -1,6 +1,6 @@
-export enum Tools {
-    Languages = 'Languages',
-    Platforms = 'Platforms',
-    Frameworks = 'Frameworks',
-    Libraries = 'Libraries',
-}
+export const Tools = {
+    Technologies: 'technologies',
+    Platforms: 'Platforms',
+    Frameworks: 'Frameworks',
+    Libraries: 'Libraries',
+} as const

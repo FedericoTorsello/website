@@ -1,20 +1,22 @@
 import { Routes } from '@angular/router';
-import { HomeComponent } from './features/home/home.component';
-import { CvComponent } from './pages/cv/cv.component';
 
 export const routes: Routes = [
-    // { 
-    //     path: 'home', 
-    //     component: HomeComponent 
-    // },
-    {
-        path: 'cv',
-        title: 'cv',
-        loadComponent: () => CvComponent
-    },
-    {
-        path: '',
-        redirectTo: '/cv',
-        pathMatch: 'full'
-    },
+  {
+    path: '',
+    loadComponent: () => import('./pages/cv/cv.component')
+  },
+  // {
+  //   path: 'home',
+  //   loadComponent: () => import('./pages/home/home.component')
+  // },
+  {
+    path: 'cv',
+    title: 'cv',
+    loadComponent: () => import('./pages/cv/cv.component')
+  },
+  {
+    path: '',
+    redirectTo: '/',
+    pathMatch: 'full'
+  },
 ];
