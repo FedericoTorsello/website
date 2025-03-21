@@ -2,12 +2,14 @@ import { computed, Injectable, signal } from '@angular/core';
 import { fromEvent } from 'rxjs';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
-enum Theme {
-  Light = 'light',
-  Dark = 'dark'
-};
+const Theme = {
+  Light: 'bumblebee', //'light'
+  Dark: 'dim' //'dark'
+} as const;
 
 const { Dark, Light } = Theme;
+
+type Theme = typeof Theme[keyof typeof Theme];
 
 enum ThemeExtraInfo {
   DataTheme = 'data-theme'
@@ -21,10 +23,6 @@ export class ThemeService {
 
   get #prefersColorScheme() {
     return window.matchMedia('(prefers-color-scheme: dark)');
-  }
-
-  get #printMode() {
-    return window.matchMedia('(print)');
   }
 
   get systemTheme(): Theme {
@@ -49,14 +47,6 @@ export class ThemeService {
     this.applyTheme(this.systemTheme);
 
     const systemThemeObservable$ = fromEvent<MediaQueryList>(this.#prefersColorScheme, 'change');
-
-    // const beforePrint$ = fromEvent(window, 'beforeprint');
-    // beforePrint$.subscribe(() => console.log('aaaa'))
-
-    // const afterPrint$ = fromEvent(window, 'afterprint');
-    // afterPrint$.subscribe(() => {
-    //     this.toggleTheme();
-    // })
 
     systemThemeObservable$
       .pipe(takeUntilDestroyed())

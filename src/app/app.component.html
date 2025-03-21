@@ -1,10 +1,10 @@
 <header
-  class="backdrop-blur bg-base-100 bg-opacity-90 shadow-sm sticky top-0 z-50"
+  class="backdrop-blur bg-base-100 bg-opacity-90 shadow-sm select-none z-50 sm:sticky fixed bottom-0 inset-x-0"
 >
   <app-header></app-header>
 </header>
 
-<div class="px-6 pt-4 print:p-0">
+<div class="h-[calc(100vh-4em)] overflow-y-auto print:h-auto">
   <router-outlet />
 </div>
 

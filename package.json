@@ -32,7 +32,8 @@
     "@ngrx/router-store": "^19.0.0",
     "@ngrx/store": "^19.0.0",
     "@ngrx/store-devtools": "^19.0.0",
-    "@tailwindcss/postcss": "^4.0.13",
+    "@tailwindcss/postcss": "^4.0.14",
+    "@tailwindcss/vite": "^4.0.14",
     "highlight.js": "^11.11.0",
     "ngx-highlightjs": "^12.0.0",
     "rxjs": "~7.8.1",
@@ -65,7 +66,7 @@
     "nx": "20.5.0",
     "postcss": "^8.5.3",
     "prettier": "^3.4.2",
-    "tailwindcss": "^4.0.13",
+    "tailwindcss": "^4.0.14",
     "tailwindcss-opentype": "^1.1.0",
     "typescript": "5.7.3"
   }

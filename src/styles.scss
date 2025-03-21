@@ -1,5 +1,8 @@
 @import "tailwindcss";
-@plugin "daisyui";
+
+@plugin "daisyui" {
+  themes: light, dark, dim, bumblebee;
+}
 
 @page {
   size: A4 portrait;
