@@ -169,11 +169,13 @@
           <ul class="menu menu-sm w-full gap-1">
             @for (lang of t("langs"); track $index) {
               @let short = lang.short;
-              @let full = lang.full;
-              @let isActiveLang = translocoService.getActiveLang() === short;
               <li>
                 <button
-                  [class]="isActiveLang ? 'border-b border-b-sky-500' : ''"
+                  [class]="
+                    translocoService.getActiveLang() === short
+                      ? 'border-b border-b-sky-500'
+                      : ''
+                  "
                   (click)="translocoService.setActiveLang(short)"
                 >
                   <span
@@ -181,7 +183,7 @@
                   >
                     {{ short }}
                   </span>
-                  <span class="font-[sans-serif]">{{ full }}</span>
+                  <span class="font-[sans-serif]">{{ lang.full }}</span>
                 </button>
               </li>
             }
