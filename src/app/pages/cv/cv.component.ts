@@ -8,31 +8,11 @@ import { ToolsComponent } from "./tools/tools.component";
 import { Tools } from './tools/tools.enum';
 import { CapitalizePipe } from "../../shared/pipes/capitalize.pipe";
 import { CertificatesComponent } from "./certificates/certificates.component";
-import {
-  svglBootstrap,
-  svglChartjs,
-  svglFlutter,
-} from '@ng-icons/svgl';
 
-import {
-  diAndroidOriginal,
-  diAngularjsOriginal,
-  diAngularmaterialOriginal,
-  diAngularOriginal,
-  diArduinoOriginal,
-  diCsharpOriginal,
-  diCss3Original,
-  diDartOriginal,
-  diGitOriginal,
-  diHtml5Original,
-  diIonicOriginal,
-  diJavaOriginal,
-  diJavascriptOriginal,
-  diRaspberrypiOriginal,
-  diSassOriginal,
-  diTailwindcssOriginal,
-  diTypescriptOriginal,
-} from '@ng-icons/devicon/original';
+import * as svglIcon from '@ng-icons/svgl';
+import * as remixIcon from '@ng-icons/remixicon';
+import * as devIcon from '@ng-icons/devicon/original';
+import { NgIcon } from '@ng-icons/core';
 
 @Component({
   selector: 'app-cv',
@@ -43,13 +23,16 @@ import {
     ContactsComponent,
     ToolsComponent,
     CapitalizePipe,
-    CertificatesComponent
+    CertificatesComponent,
+    NgIcon
   ],
   templateUrl: './cv.component.html',
   styleUrl: './cv.component.scss'
 })
 export default class CvComponent {
   public translocoService = inject(TranslocoService);
+
+  readonly remixIcon = remixIcon;
 
   readonly Tools = Tools;
 
@@ -65,30 +48,30 @@ export default class CvComponent {
     technologies: [{
       name: 'TypeScript',
       icon: {
-        src: diTypescriptOriginal,
+        src: devIcon.diTypescriptOriginal,
       },
     },
     {
       name: 'JavaScript',
       icon: {
-        src: diJavascriptOriginal,
+        src: devIcon.diJavascriptOriginal,
       },
     },
     {
       name: 'HTML5',
       icon: {
-        src: diHtml5Original
+        src: devIcon.diHtml5Original
       }
     }, {
       name: 'CSS3',
       icon: {
-        src: diCss3Original
+        src: devIcon.diCss3Original
       },
     },
     {
       name: 'SASS',
       icon: {
-        src: diSassOriginal
+        src: devIcon.diSassOriginal
       },
     },
     {
@@ -112,19 +95,19 @@ export default class CvComponent {
     {
       name: 'Java',
       icon: {
-        src: diJavaOriginal
+        src: devIcon.diJavaOriginal
       },
     },
     {
       name: 'C Sharp',
       icon: {
-        src: diCsharpOriginal
+        src: devIcon.diCsharpOriginal
       },
     },
     {
       name: 'Dart',
       icon: {
-        src: diDartOriginal
+        src: devIcon.diDartOriginal
       },
     },
       // {
@@ -138,7 +121,7 @@ export default class CvComponent {
       {
         name: 'Android',
         icon: {
-          src: diAndroidOriginal
+          src: devIcon.diAndroidOriginal
         },
       },
       {
@@ -214,31 +197,31 @@ export default class CvComponent {
       {
         name: 'Angular',
         icon: {
-          src: diAngularOriginal
+          src: devIcon.diAngularOriginal
         },
       },
       {
         name: 'Angular JS',
         icon: {
-          src: diAngularjsOriginal
+          src: devIcon.diAngularjsOriginal
         }
       },
       {
         name: 'Bootstrap',
         icon: {
-          src: svglBootstrap
+          src: svglIcon.svglBootstrap
         },
       },
       {
         name: 'Tailwind CSS',
         icon: {
-          src: diTailwindcssOriginal
+          src: devIcon.diTailwindcssOriginal
         },
       },
       {
         name: 'Ionic',
         icon: {
-          src: diIonicOriginal
+          src: devIcon.diIonicOriginal
         }
       },
       {
@@ -253,7 +236,7 @@ export default class CvComponent {
       {
         name: 'Flutter',
         icon: {
-          src: svglFlutter
+          src: svglIcon.svglFlutter
         },
       },
       {
@@ -319,7 +302,7 @@ export default class CvComponent {
       {
         name: 'Angular Material (CDK)',
         icon: {
-          src: diAngularmaterialOriginal
+          src: devIcon.diAngularmaterialOriginal
         },
       },
       {
@@ -331,13 +314,13 @@ export default class CvComponent {
       {
         name: 'ngx-easy-table',
         icon: {
-          src: diAngularOriginal
+          src: devIcon.diAngularOriginal
         },
       },
       {
         name: 'ChartJS',
         icon: {
-          src: svglChartjs
+          src: svglIcon.svglChartjs
         }
       },
       {
@@ -436,19 +419,19 @@ export default class CvComponent {
       {
         name: 'Git',
         icon: {
-          src: diGitOriginal
+          src: devIcon.diGitOriginal
         }
       },
       {
         name: 'Arduino',
         icon: {
-          src: diArduinoOriginal
+          src: devIcon.diArduinoOriginal
         }
       },
       {
         name: 'Raspberry Pi',
         icon: {
-          src: diRaspberrypiOriginal
+          src: devIcon.diRaspberrypiOriginal
         }
       },
     ]

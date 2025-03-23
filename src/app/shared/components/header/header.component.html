@@ -1,13 +1,21 @@
 <ng-container *transloco="let t">
   <nav class="navbar">
     <div class="dock justify-center shadow-sm">
-      <button tabindex="0" routerLink="/home" routerLinkActive="dock-active">
-        <ng-icon size="1.2rem" [svg]="remixHome4Fill"></ng-icon>
-        <span class="dock-label">Home</span>
+      <button
+        tabindex="0"
+        [routerLink]="routeDetails.home.url"
+        routerLinkActive="dock-active"
+      >
+        <ng-icon size="1.2rem" [svg]="remixIcon.remixHome4Fill"></ng-icon>
+        <span class="dock-label">{{ routeDetails.home.title }}</span>
       </button>
-      <button tabindex="0" routerLink="/cv" routerLinkActive="dock-active">
-        <ng-icon size="1.2rem" [svg]="remixArticleLine"></ng-icon>
-        <span class="dock-label">CV</span>
+      <button
+        tabindex="0"
+        [routerLink]="routeDetails.cv.url"
+        routerLinkActive="dock-active"
+      >
+        <ng-icon size="1.2rem" [svg]="remixIcon.remixArticleLine"></ng-icon>
+        <span class="dock-label">{{ routeDetails.cv.title }}</span>
       </button>
       <!-- <button>
         <svg
@@ -95,7 +103,7 @@
             <svg
               width="12px"
               height="12px"
-              class="hidden h-2 w-2 fill-current opacity-60 sm:inline-block"
+              class="h-2 w-2 fill-current opacity-60 sm:inline-block"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 2048 2048"
             >

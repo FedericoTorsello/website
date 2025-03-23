@@ -2,8 +2,10 @@ import { Component, inject } from '@angular/core';
 import { ThemeService } from '../../../core/services/theme/theme.service';
 import { TranslocoDirective, TranslocoService } from '@jsverse/transloco';
 import { RouterLink, RouterLinkActive } from '@angular/router';
-import { remixHome4Line, remixArticleLine } from '@ng-icons/remixicon'
 import { NgIcon } from '@ng-icons/core';
+import { routeDetails } from '../../../app.routes';
+
+import * as remixIcon from '@ng-icons/remixicon';
 
 @Component({
   selector: 'app-header',
@@ -17,12 +19,12 @@ import { NgIcon } from '@ng-icons/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
-  readonly themeService = inject(ThemeService);
+  readonly routeDetails = routeDetails;
 
+  readonly themeService = inject(ThemeService);
   readonly translocoService = inject(TranslocoService);
 
-  readonly remixHome4Fill = remixHome4Line;
-  readonly remixArticleLine = remixArticleLine;
+  readonly remixIcon = remixIcon;
 
   readonly langs = [
     {

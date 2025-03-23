@@ -3,7 +3,7 @@ import {
   provideZoneChangeDetection,
   isDevMode,
 } from '@angular/core';
-import { provideRouter, withComponentInputBinding } from '@angular/router';
+import { provideRouter, withComponentInputBinding, withInMemoryScrolling } from '@angular/router';
 
 import { routes } from './app.routes';
 import { provideHttpClient } from '@angular/common/http';
@@ -13,6 +13,7 @@ import { HIGHLIGHT_OPTIONS, provideHighlightOptions } from 'ngx-highlightjs';
 import { provideStore } from '@ngrx/store';
 import { provideEffects } from '@ngrx/effects';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -27,7 +28,13 @@ export const appConfig: ApplicationConfig = {
       connectInZone: true // If set to true, the connection is established within the Angular zone
     }),
     provideZoneChangeDetection({ eventCoalescing: true }),
-    provideRouter(routes, withComponentInputBinding()), //accedere ai parametri dell'URL come @Input
+    provideAnimationsAsync(),
+    provideRouter(routes,
+      withComponentInputBinding(),
+      withInMemoryScrolling({
+        scrollPositionRestoration: 'enabled'
+      })
+    ), //accedere ai parametri dell'URL come @Input
     provideHttpClient(),
     provideTransloco({
       config: {
@@ -48,7 +55,6 @@ export const appConfig: ApplicationConfig = {
     {
       provide: HIGHLIGHT_OPTIONS,
       useValue: {
-        // ...
         themePath: 'styles/solarized-dark.css',
       },
     },

@@ -1,17 +1,25 @@
-<header
-  class="backdrop-blur bg-base-100 bg-opacity-90 shadow-sm select-none z-50 sm:sticky fixed bottom-0 inset-x-0"
->
-  <app-header></app-header>
-</header>
+<div>
+  <header
+    class="backdrop-blur bg-base-100 bg-opacity-90 shadow-sm select-none z-50 sm:sticky fixed bottom-0 inset-x-0"
+  >
+    <app-header></app-header>
+  </header>
 
-<div class="h-[calc(100vh-4em)] overflow-y-auto print:h-auto">
-  <router-outlet />
+  <div
+    [@routeTransition]="o.isActivated ? o.activatedRoute : ''"
+    class="h-[calc(100vh-4em)] overflow-y-auto print:h-auto"
+    (touchstart)="onTouchStart($event)"
+    (touchmove)="onTouchMove($event)"
+    (touchend)="onTouchEnd()"
+  >
+    <router-outlet #o="outlet"> </router-outlet>
+  </div>
 </div>
 
 <!-- <footer>
   @defer (on viewport) {
     <app-footer />
-  } @placeholder {
-    <div>footer</div>
+    } @placeholder {
+      <div>footer</div>
   }
 </footer> -->
