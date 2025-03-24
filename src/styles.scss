@@ -1,4 +1,4 @@
-@use "tailwindcss"; 
+@use "tailwindcss";
 
 @plugin "daisyui" {
   themes: light, dark, dim, bumblebee;
@@ -10,7 +10,6 @@
 }
 
 @media print {
-
   header,
   footer {
     display: none;
