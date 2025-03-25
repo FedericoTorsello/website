@@ -1,12 +1,13 @@
 <ng-container *transloco="let t; scope: 'cv'">
-  <div class="p-2 sticky top-0 z-10 grid justify-items-end print:hidden">
+  <div class="grid justify-items-end sticky p-2 top-0 z-10 print:hidden">
+    @let printLabel = t("cv.print") | capitalize;
     <button
-      class="btn btn-dash btn-info bg-white capitalize"
+      class="btn btn-dash btn-info bg-white"
       (click)="onPrint()"
-      [title]="t('cv.print') | capitalize"
+      [title]="printLabel"
     >
-      {{ t("cv.print") }}
-      <ng-icon class="mt-0.5" [svg]="remixIcon.remixPrinterLine" />
+      {{ printLabel }}
+      <ng-icon [svg]="remixIcon.remixPrinterLine" />
     </button>
   </div>
 

@@ -1,4 +1,4 @@
-<ng-container *transloco="let t; scope: 'home'">
+<ng-container *transloco="let t; scope: 'homePage'">
   <div class="min-h-full hero bg-base-100 pt-2">
     <div class="hero-content max-w-max text-center">
       <div class="max-w-md">
@@ -6,7 +6,7 @@
           Front-End Developer (Angular)
         </h1>
         <div class="text-xl sm:text-2xl py-6 grid gap-4">
-          @for (item of t("home.intro"); track $index) {
+          @for (item of t("homePage.intro"); track $index) {
             <p>
               {{ item }}
             </p>

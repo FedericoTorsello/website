@@ -4,22 +4,11 @@ export type PersonalInfo = {
   fullName: string;
 }
 
-export type Contacts = {
-  phone: string;
-  email: string;
-  website: {
-    shortLink: string;
-    fullLink: string;
-  };
-  linkedin: {
-    shortLink: string;
-    fullLink: string;
-  },
-  github: {
-    shortLink: string;
-    fullLink: string;
-  }
-}
+export type Contact = {
+  shortLink: string;
+  fullLink: string;
+  icon: string,
+};
 
 export type WorkExperience = {
   period: {

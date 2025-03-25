@@ -21,7 +21,7 @@ export const routes: Routes = [
   {
     path: routeDetails.home.url,
     title: routeDetails.home.title,
-    loadComponent: () => import('./pages/home/home.component')
+    loadComponent: () => import('./pages/home-page/home-page.component')
   },
   {
     path: routeDetails.cv.url,

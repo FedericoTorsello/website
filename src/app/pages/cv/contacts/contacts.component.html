@@ -1,82 +1,18 @@
-<ng-container *transloco="let t; scope: 'contacts'">
-  <ul class="grid gap-2 text-sm">
+<ul class="grid gap-2 text-sm">
+  @for (contact of contacts; track $index) {
     <li>
-      <a [href]="`tel:${contacts.phone}`" [title]="contacts.phone">
+      <a [href]="contact.fullLink" [title]="contact.fullLink" target="_blank">
         <span class="flex gap-2">
-          <ng-icon class="!text-blue-400" name="remixPhoneLine" size="18" />
+          <ng-icon class="!text-blue-400" [svg]="contact.icon" size="18" />
           <p class="text-gray-500">
-            {{ contacts.phone }}
+            {{ contact.shortLink }}
           </p>
         </span>
       </a>
     </li>
 
-    <hr />
-
-    <li>
-      <a [href]="`mailto:${contacts.email}`" [title]="contacts.email">
-        <span class="flex gap-2">
-          <ng-icon class="!text-blue-400" name="remixMailLine" size="18" />
-          <p class="text-gray-500">
-            {{ contacts.email }}
-          </p>
-        </span>
-      </a>
-    </li>
-
-    <hr />
-
-    <li>
-      <a
-        [href]="contacts.website.fullLink"
-        [title]="contacts.website.fullLink"
-        target="_blank"
-      >
-        <span class="flex gap-2">
-          <ng-icon class="!text-blue-400" name="remixLinksFill" size="18" />
-          <p class="text-gray-500">
-            {{ contacts.website.shortLink }}
-          </p>
-        </span>
-      </a>
-    </li>
-
-    <hr />
-
-    <li>
-      <a
-        [href]="contacts.linkedin.fullLink"
-        [title]="contacts.linkedin.fullLink"
-        target="_blank"
-      >
-        <span class="flex gap-2">
-          <ng-icon
-            class="!text-blue-400"
-            name="remixLinkedinBoxFill"
-            size="18"
-          />
-          <p class="text-gray-500">
-            {{ contacts.linkedin.shortLink }}
-          </p>
-        </span>
-      </a>
-    </li>
-
-    <hr />
-
-    <li>
-      <a
-        [href]="contacts.github.fullLink"
-        [title]="contacts.github.fullLink"
-        target="_blank"
-      >
-        <span class="flex gap-2">
-          <ng-icon class="!text-blue-400" name="remixGithubFill" size="18" />
-          <p class="text-gray-500">
-            {{ contacts.github.shortLink }}
-          </p>
-        </span>
-      </a>
-    </li>
-  </ul>
-</ng-container>
+    @if (!$last) {
+      <hr />
+    }
+  }
+</ul>

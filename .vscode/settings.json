@@ -5,5 +5,5 @@
   "i18n-ally.sourceLanguage": "it",
   "i18n-ally.localesPaths": ["public/i18n"],
   "i18n-ally.namespace": true,
-  "i18n-ally.pathMatcher": "{namespaces?}/{locale}.{ext}",
+  "i18n-ally.pathMatcher": "{namespaces?}/||{locale}.{ext}",
 }
