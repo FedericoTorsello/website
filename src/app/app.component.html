@@ -8,9 +8,9 @@
   <div
     [@routeTransition]="o.isActivated ? o.activatedRoute : ''"
     class="h-[calc(100vh-4em)] overflow-y-auto print:h-auto"
-    (touchstart)="onTouchStart($event)"
-    (touchmove)="onTouchMove($event)"
-    (touchend)="onTouchEnd()"
+
+    (swipeLeft)="onSwipeLeft($event)"
+    (swipeRight)="onSwipeRight($event)"
   >
     <router-outlet #o="outlet"> </router-outlet>
   </div>

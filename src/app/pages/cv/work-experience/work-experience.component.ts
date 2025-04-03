@@ -1,8 +1,6 @@
 import { Component, input, OnInit, inject } from '@angular/core';
-import { NgIcon, provideIcons } from '@ng-icons/core';
-import {
-  remixCheckboxCircleFill,
-} from '@ng-icons/remixicon';
+import { NgIcon } from '@ng-icons/core';
+import * as remixIcon from '@ng-icons/remixicon';
 import { Page, WorkExperience } from '../../../models/cv-data.model';
 import { TranslocoDirective, TranslocoService } from '@jsverse/transloco';
 
@@ -11,11 +9,6 @@ import { TranslocoDirective, TranslocoService } from '@jsverse/transloco';
   imports: [
     NgIcon,
     TranslocoDirective
-  ],
-  providers: [
-    provideIcons({
-      remixCheckboxCircleFill
-    })
   ],
   templateUrl: './work-experience.component.html',
   styleUrl: './work-experience.component.scss'
@@ -26,6 +19,8 @@ export class WorkExperienceComponent implements OnInit {
   readonly timeline = input(true);
 
   readonly page = input.required<Page>();
+
+  readonly remixIcon = remixIcon;
 
   asWorkExperienceList = (value: WorkExperience[]) => value;
 

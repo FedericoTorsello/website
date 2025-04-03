@@ -1,36 +1,46 @@
+import { InjectionToken } from '@angular/core';
 import { Routes } from '@angular/router';
+import { remixHome4Fill, remixArticleLine } from '@ng-icons/remixicon';
 
 type RouteDetail = {
   url: string,
-  title: string
+  title: string,
+  icon: string
 };
 
-export const routeDetails = {
+const page: Record<'home' | 'cv', RouteDetail> = {
   home: {
     url: 'home',
-    title: 'Home'
-  } as RouteDetail,
+    title: 'Home',
+    icon: remixHome4Fill
+  },
   cv: {
     url: 'cv',
-    title: 'CV'
-  } as RouteDetail,
+    title: 'CV',
+    icon: remixArticleLine
+  },
 } as const;
 
+export const PAGES = new InjectionToken<typeof page>('PAGES', {
+  providedIn: 'root',
+  factory: () => page,
+});
 
+const { cv, home } = page;
 export const routes: Routes = [
   {
-    path: routeDetails.home.url,
-    title: routeDetails.home.title,
+    path: home.url,
+    title: home.title,
     loadComponent: () => import('./pages/home-page/home-page.component')
   },
   {
-    path: routeDetails.cv.url,
-    title: routeDetails.cv.title,
+    path: cv.url,
+    title: cv.title,
     loadComponent: () => import('./pages/cv/cv.component')
   },
   {
     path: '',
-    redirectTo: routeDetails.home.url,
+    redirectTo: home.url,
     pathMatch: 'full'
   },
 ];

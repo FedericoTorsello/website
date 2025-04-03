@@ -2,6 +2,8 @@ import {
   ApplicationConfig,
   provideZoneChangeDetection,
   isDevMode,
+  importProvidersFrom,
+  Injectable,
 } from '@angular/core';
 import { provideRouter, withComponentInputBinding, withInMemoryScrolling } from '@angular/router';
 
@@ -14,6 +16,16 @@ import { provideStore } from '@ngrx/store';
 import { provideEffects } from '@ngrx/effects';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { HAMMER_GESTURE_CONFIG, HAMMER_LOADER, HammerGestureConfig, HammerModule } from '@angular/platform-browser';
+
+@Injectable()
+export class CustomHammerConfig extends HammerGestureConfig {
+  override overrides = {
+    'swipeLeft': { threshold: 100 },
+    'swipeRight': { threshold: 100 }
+  };
+}
+
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -30,11 +42,12 @@ export const appConfig: ApplicationConfig = {
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideAnimationsAsync(),
     provideRouter(routes,
-      withComponentInputBinding(),
+      withComponentInputBinding(), //accedere ai parametri dell'URL come @Input
       withInMemoryScrolling({
-        scrollPositionRestoration: 'enabled'
+        anchorScrolling: 'enabled',
+        scrollPositionRestoration: 'enabled',
       })
-    ), //accedere ai parametri dell'URL come @Input
+    ),
     provideHttpClient(),
     provideTransloco({
       config: {
@@ -67,5 +80,17 @@ export const appConfig: ApplicationConfig = {
         css: () => import('highlight.js/lib/languages/css'),
       },
     }),
+    {
+      provide: HAMMER_LOADER,
+      useValue: () => import('hammerjs')
+        .then(() => {
+          Hammer.defaults.cssProps.userSelect = 'auto';
+        })
+    },
+    // {
+    //   provide: HAMMER_GESTURE_CONFIG,
+    //   useClass: HammerGestureConfig,
+    // },
+    importProvidersFrom(HammerModule)
   ],
 };

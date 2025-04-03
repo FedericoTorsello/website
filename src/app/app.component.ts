@@ -1,8 +1,8 @@
 import { Component, inject } from '@angular/core';
 import { Router, RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './shared/components/header/header.component';
-import { routeDetails } from './app.routes';
-import { animate, query, stagger, state, style, transition, trigger } from '@angular/animations';
+import { animate, query, style, transition, trigger } from '@angular/animations';
+import { PAGES } from './app.routes';
 
 export const routeTransition = trigger('routeTransition', [
   transition('* => *', [
@@ -26,45 +26,26 @@ export const routeTransition = trigger('routeTransition', [
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
-  animations: [routeTransition]
+  animations: [routeTransition],
 })
 export class AppComponent {
   #router = inject(Router);
+  #pages = inject(PAGES);
 
-  selectedIndex = 0;
-
-  #touchStartX: number | undefined;
-  #touchEndX: number | undefined;
-
-  #routeDetails = routeDetails;
+  #selectedIndex = 0;
 
   selectTab(index: number) {
-    this.selectedIndex = index;
-    const { url: path } = Object.values(this.#routeDetails)[this.selectedIndex];
-    this.#router.navigateByUrl(path);
+    this.#selectedIndex = index;
+    const { url } = Object.values(this.#pages)[this.#selectedIndex];
+    this.#router.navigateByUrl(url);
   }
 
-  onTouchStart(event: TouchEvent) {
-    this.#touchStartX = event.touches[0].clientX;
+  onSwipeLeft(event: Event) {
+    this.selectTab(Math.min(this.#selectedIndex + 1, Object.entries(this.#pages).length - 1));
   }
 
-  onTouchMove(event: TouchEvent) {
-    this.#touchEndX = event.touches[0].clientX;
-  }
-
-  onTouchEnd() {
-    if (!this.#touchEndX || !this.#touchStartX) {
-      return;
-    }
-
-    const deltaX = this.#touchEndX - this.#touchStartX;
-    if (Math.abs(deltaX) > 50) {
-      if (deltaX > 0) {
-        this.selectTab(Math.max(this.selectedIndex - 1, 0));
-      } else {
-        this.selectTab(Math.min(this.selectedIndex + 1, Object.entries(this.#routeDetails).length - 1));
-      }
-    }
+  onSwipeRight(event: Event) {
+    this.selectTab(Math.max(this.#selectedIndex - 1, 0));
   }
 }
 

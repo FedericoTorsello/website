@@ -3,9 +3,9 @@ import { ThemeService } from '../../../core/services/theme/theme.service';
 import { TranslocoDirective, TranslocoService } from '@jsverse/transloco';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { NgIcon } from '@ng-icons/core';
-import { routeDetails } from '../../../app.routes';
 
-import * as remixIcon from '@ng-icons/remixicon';
+import { PAGES } from '../../../app.routes';
+import { KeyValuePipe } from '@angular/common';
 
 @Component({
   selector: 'app-header',
@@ -13,18 +13,16 @@ import * as remixIcon from '@ng-icons/remixicon';
     TranslocoDirective,
     RouterLink,
     RouterLinkActive,
-    NgIcon
+    NgIcon,
+    KeyValuePipe
   ],
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
-  readonly routeDetails = routeDetails;
-
+  readonly pages = inject(PAGES);
   readonly themeService = inject(ThemeService);
   readonly translocoService = inject(TranslocoService);
-
-  readonly remixIcon = remixIcon;
 
   readonly langs = [
     {

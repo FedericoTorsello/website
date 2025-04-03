@@ -1,8 +1,14 @@
 @use "tailwindcss";
 
+$light: bumblebee;
+$dark: dim;
+
 @plugin "daisyui" {
-  themes: light, dark, dim, bumblebee;
+  themes: #{$light} --default,
+  #{$dark} --prefersdark;
 }
+
+@custom-variant dark (&:where([data-theme=#{$dark}], [data-theme=#{$dark}] *));
 
 @page {
   size: A4 portrait;
@@ -10,6 +16,7 @@
 }
 
 @media print {
+
   header,
   footer {
     display: none;

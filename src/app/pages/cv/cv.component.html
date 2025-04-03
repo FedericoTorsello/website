@@ -7,19 +7,19 @@
       [title]="printLabel"
     >
       {{ printLabel }}
-      <ng-icon [svg]="remixIcon.remixPrinterLine" />
+      <ng-icon [svg]="remixIcon.remixPrinterLine" size="1.2em" />
     </button>
   </div>
 
   <div class="flex justify-center">
     <main
-      data-theme="light"
+      data-theme="bumblebee"
       id="cv"
       class="grid w-full md:gap-2 md:w-[210mm] md:min-w-[210mm] md:min-h-[297mm] print:gap-0 print:w-[210mm] print:min-w-[210mm] print:min-h-[297mm] print:pl-2"
     >
       <article
         id="pag1"
-        class="flex flex-col md:flex-row md:h-[297mm] print:flex-row print:h-[297mm] bg-white shadow-xl"
+        class="flex flex-col md:flex-row md:h-[297mm] print:flex-row print:h-[297mm] bg-white shadow-xl shadow-blue-500/50 print:shadow-none"
       >
         <section
           class="md:w-4/6 print:w-4/6 py-10 px-4 bg-blue-50 border-r-2 border-r-blue-50"
@@ -37,7 +37,7 @@
                 [title]="personalInfo.fullName"
               >
                 <div
-                  class="ring ring-slate-600 ring-offset-base-100 rounded-full w-32"
+                  class="ring ring-slate-600 ring-offset-base-100 rounded-full w-32 shadow-lg"
                 >
                   <img src="img/bio/avatar.jpg" />
                 </div>
@@ -57,7 +57,7 @@
             [title]="personalInfo.fullName"
           >
             <div
-              class="ring ring-slate-600 ring-offset-base-100 rounded-full w-36"
+              class="ring ring-slate-600 ring-offset-base-100 rounded-full w-36 shadow-lg"
             >
               <img src="img/bio/avatar.jpg" />
             </div>
@@ -86,10 +86,10 @@
       </article>
       <article
         id="pag2"
-        class="flex flex-col md:flex-row md:h-[297mm] print:flex-row print:h-[297mm] bg-white shadow-xl"
+        class="flex flex-col md:flex-row md:h-[297mm] print:flex-row print:h-[297mm] bg-white shadow-xl shadow-blue-500/50 print:shadow-none"
       >
         <section
-          class="md:w-4/6 print:w-4/6 print:p-5 py-8 px-5 bg-blue-50 border-r-2 border-r-blue-50 grid gap-4"
+          class="md:w-4/6 print:w-4/6 py-8 px-4 bg-blue-50 border-r-2 border-r-blue-50 grid gap-4"
         >
           <app-work-experience [timeline]="true" [page]="'page2'" />
           <div>

@@ -1,20 +1,15 @@
 <ng-container *transloco="let t; scope: 'workExperience'">
   <ul class="relative border-s-4 border-blue-500 h-full">
-    @let workExperienceList = asWorkExperienceList(
-      t("workExperience.workExperience." + page())
-    );
-    @for (
-      workExperience of workExperienceList;
-      track $index;
-      let last = $last
-    ) {
+    @let workExperienceList =
+      asWorkExperienceList(t("workExperience.workExperience." + page()));
+    @for (workExperience of workExperienceList; track $index) {
       @if (timeline()) {
-        <li class="ms-4" [class.mb-6]="workExperienceList.length > 1">
+        <li class="ms-4 mb-6">
           <span
             class="absolute flex items-center justify-center w-6 h-6 -start-[14px] bg-blue-50"
           >
             <ng-icon
-              name="remixCheckboxCircleFill"
+              [svg]="remixIcon.remixCheckboxCircleFill"
               style="filter: drop-shadow(1.5px 1.5px 1.5px #00000066)"
             />
           </span>
@@ -35,12 +30,13 @@
                 </span>
               </time>
             </div>
-            <span
-              class="font-black text-blue-500 text-right uppercase whitespace-pre-line"
+            <div
+              class="font-black text-blue-500 text-right uppercase whitespace-pre"
             >
               {{ workExperience.jobTitle }}
-            </span>
+            </div>
           </h3>
+
           <ul class="list-disc list-inside text-sm">
             @for (details of workExperience.details; track $index) {
               <li>
