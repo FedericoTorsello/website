@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { NgIcon } from '@ng-icons/core';
 import { Tool } from '../../../models/cv-data.model';
 
@@ -8,7 +8,8 @@ import { Tool } from '../../../models/cv-data.model';
     NgIcon,
   ],
   templateUrl: './tools.component.html',
-  styleUrl: './tools.component.scss'
+  styleUrl: './tools.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ToolsComponent {
   readonly toolList = input.required<Tool[]>();

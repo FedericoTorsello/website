@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { ThemeService } from '../../../core/services/theme/theme.service';
 import { TranslocoDirective, TranslocoService } from '@jsverse/transloco';
 import { RouterLink, RouterLinkActive } from '@angular/router';
@@ -17,7 +17,8 @@ import { KeyValuePipe } from '@angular/common';
     KeyValuePipe
   ],
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrl: './header.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HeaderComponent {
   readonly pages = inject(PAGES);

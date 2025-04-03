@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
 import { Education } from '../../../models/cv-data.model';
 import { TranslocoDirective, TranslocoService } from '@jsverse/transloco';
 
@@ -8,7 +8,8 @@ import { TranslocoDirective, TranslocoService } from '@jsverse/transloco';
     TranslocoDirective
   ],
   templateUrl: './education.component.html',
-  styleUrl: './education.component.scss'
+  styleUrl: './education.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class EducationComponent implements OnInit {
   readonly translocoService = inject(TranslocoService);

@@ -1,14 +1,15 @@
 import { AsyncPipe } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { Component, inject, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
 
 import { HighlightAuto } from 'ngx-highlightjs';
 
 @Component({
-    selector: 'app-mockup-code',
-    imports: [HighlightAuto],
-    templateUrl: './mockup-code.component.html',
-    styleUrl: './mockup-code.component.scss'
+  selector: 'app-mockup-code',
+  imports: [HighlightAuto],
+  templateUrl: './mockup-code.component.html',
+  styleUrl: './mockup-code.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MockupCodeComponent implements OnInit {
 

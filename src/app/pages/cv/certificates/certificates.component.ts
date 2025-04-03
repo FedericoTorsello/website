@@ -1,4 +1,4 @@
-import { Component, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 import { TranslocoDirective } from '@jsverse/transloco';
 import { Certificate } from '../../../models/cv-data.model';
 
@@ -8,7 +8,8 @@ import { Certificate } from '../../../models/cv-data.model';
     TranslocoDirective
   ],
   templateUrl: './certificates.component.html',
-  styleUrl: './certificates.component.scss'
+  styleUrl: './certificates.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CertificatesComponent {
   readonly certificateList: Certificate[] = [

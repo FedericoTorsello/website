@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { NgIcon } from '@ng-icons/core';
 import *  as remixIcon from '@ng-icons/remixicon';
 import { Contact } from '../../../models/cv-data.model';
@@ -9,7 +9,8 @@ import { Contact } from '../../../models/cv-data.model';
     NgIcon
   ],
   templateUrl: './contacts.component.html',
-  styleUrl: './contacts.component.scss'
+  styleUrl: './contacts.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ContactsComponent {
   readonly remixIcon = remixIcon;

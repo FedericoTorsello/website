@@ -1,4 +1,4 @@
-import { Component, input, OnInit, inject } from '@angular/core';
+import { Component, input, OnInit, inject, ChangeDetectionStrategy } from '@angular/core';
 import { NgIcon } from '@ng-icons/core';
 import * as remixIcon from '@ng-icons/remixicon';
 import { Page, WorkExperience } from '../../../models/cv-data.model';
@@ -11,7 +11,8 @@ import { TranslocoDirective, TranslocoService } from '@jsverse/transloco';
     TranslocoDirective
   ],
   templateUrl: './work-experience.component.html',
-  styleUrl: './work-experience.component.scss'
+  styleUrl: './work-experience.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class WorkExperienceComponent implements OnInit {
   readonly translocoService = inject(TranslocoService);

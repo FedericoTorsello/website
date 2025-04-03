@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { TranslocoDirective, TranslocoService } from '@jsverse/transloco';
 import { WorkExperienceComponent } from "./work-experience/work-experience.component";
 import { PersonalInfo, Tool } from '../../models/cv-data.model';
@@ -27,7 +27,8 @@ import { NgIcon } from '@ng-icons/core';
     NgIcon
   ],
   templateUrl: './cv.component.html',
-  styleUrl: './cv.component.scss'
+  styleUrl: './cv.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export default class CvComponent {
   public translocoService = inject(TranslocoService);

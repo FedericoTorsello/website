@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { Router, RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { animate, query, style, transition, trigger } from '@angular/animations';
@@ -27,6 +27,7 @@ export const routeTransition = trigger('routeTransition', [
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
   animations: [routeTransition],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent {
   #router = inject(Router);
