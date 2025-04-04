@@ -1,4 +1,4 @@
-<ng-container *transloco="let t; scope: 'cv'">
+<ng-template transloco let-t [translocoScope]="pages.cv.url">
   <div class="grid justify-items-end sticky p-2 top-0 z-10 print:hidden">
     @let printLabel = t("cv.print") | capitalize;
     <button
@@ -151,4 +151,4 @@
       </article>
     </main>
   </div>
-</ng-container>
+</ng-template>

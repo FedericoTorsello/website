@@ -5,12 +5,15 @@ import { remixHome4Fill, remixArticleLine } from '@ng-icons/remixicon';
 type RouteDetail = {
   url: string,
   title: string,
-  icon: string
+  icon: string,
+  hidden?: boolean
 };
 
-const page: Record<'home' | 'cv', RouteDetail> = {
+type Pages = 'home' | 'cv' | 'guides';
+
+const page: Record<Pages, RouteDetail> = {
   home: {
-    url: 'home',
+    url: 'homePage',
     title: 'Home',
     icon: remixHome4Fill
   },
@@ -19,6 +22,12 @@ const page: Record<'home' | 'cv', RouteDetail> = {
     title: 'CV',
     icon: remixArticleLine
   },
+  guides: {
+    url: 'guides',
+    title: 'Guides',
+    icon: remixArticleLine,
+    hidden: true
+  },
 } as const;
 
 export const PAGES = new InjectionToken<typeof page>('PAGES', {
@@ -26,17 +35,22 @@ export const PAGES = new InjectionToken<typeof page>('PAGES', {
   factory: () => page,
 });
 
-const { cv, home } = page;
+const { cv, home, guides } = page;
 export const routes: Routes = [
   {
     path: home.url,
     title: home.title,
-    loadComponent: () => import('./pages/home-page/home-page.component')
+    loadComponent: () => import('./pages/home-page/home-page.component'),
   },
   {
     path: cv.url,
     title: cv.title,
     loadComponent: () => import('./pages/cv/cv.component')
+  },
+  {
+    path: guides.url,
+    title: guides.title,
+    loadComponent: () => import('./pages/guides/guides.component')
   },
   {
     path: '',

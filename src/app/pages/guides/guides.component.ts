@@ -3,14 +3,14 @@ import { TranslocoDirective } from '@jsverse/transloco';
 import { PAGES } from '../../app.routes';
 
 @Component({
-  selector: 'app-home-page',
+  selector: 'app-guides',
   imports: [
     TranslocoDirective
   ],
-  templateUrl: './home-page.component.html',
-  styleUrl: './home-page.component.scss',
+  templateUrl: './guides.component.html',
+  styleUrl: './guides.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export default class HomePageComponent {
+export default class GuidesComponent {
   readonly pages = inject(PAGES);
 }

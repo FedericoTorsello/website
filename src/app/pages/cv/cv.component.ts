@@ -13,6 +13,7 @@ import * as svglIcon from '@ng-icons/svgl';
 import * as remixIcon from '@ng-icons/remixicon';
 import * as devIcon from '@ng-icons/devicon/original';
 import { NgIcon } from '@ng-icons/core';
+import { PAGES } from '../../app.routes';
 
 @Component({
   selector: 'app-cv',
@@ -32,6 +33,8 @@ import { NgIcon } from '@ng-icons/core';
 })
 export default class CvComponent {
   public translocoService = inject(TranslocoService);
+
+  readonly pages = inject(PAGES);
 
   readonly remixIcon = remixIcon;
 

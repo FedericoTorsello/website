@@ -1,4 +1,4 @@
-<ng-container *transloco="let t; scope: 'homePage'">
+<ng-template transloco let-t [translocoScope]="pages.home.url">
   <div class="min-h-full hero bg-base-100 pt-2">
     <div class="hero-content max-w-max text-center">
       <div class="max-w-md">
@@ -15,4 +15,4 @@
       </div>
     </div>
   </div>
-</ng-container>
+</ng-template>
