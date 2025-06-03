@@ -5,7 +5,11 @@
     <app-header></app-header>
   </header>
 
-  <div
+  <div class="h-[calc(100vh-4em)] overflow-y-auto print:h-auto">
+    <router-outlet #o="outlet"> </router-outlet>
+  </div>
+
+  <!-- <div
     [@routeTransition]="o.isActivated ? o.activatedRoute : ''"
     class="h-[calc(100vh-4em)] overflow-y-auto print:h-auto"
 
@@ -13,7 +17,7 @@
     (swipeRight)="onSwipeRight($event)"
   >
     <router-outlet #o="outlet"> </router-outlet>
-  </div>
+  </div> -->
 </div>
 
 <!-- <footer>
