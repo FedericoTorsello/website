@@ -3,6 +3,7 @@ import { Router, RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { animate, query, style, transition, trigger } from '@angular/animations';
 import { PAGES } from './app.routes';
+import { Platform } from '@angular/cdk/platform';
 
 export const routeTransition = trigger('routeTransition', [
   transition('* => *', [
@@ -22,8 +23,9 @@ export const routeTransition = trigger('routeTransition', [
   selector: 'app-root',
   imports: [
     HeaderComponent,
-    RouterOutlet
+    RouterOutlet,
   ],
+  providers: [Platform],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
   animations: [routeTransition],
@@ -32,8 +34,13 @@ export const routeTransition = trigger('routeTransition', [
 export class AppComponent {
   #router = inject(Router);
   #pages = inject(PAGES);
+  #platform = inject(Platform);
 
   #selectedIndex = 0;
+
+  get isMobile() {
+    return this.#platform.ANDROID || this.#platform.IOS;
+  };
 
   selectTab(index: number) {
     this.#selectedIndex = index;

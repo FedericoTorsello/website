@@ -4,6 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "nx serve --port 4201",
+    "start:local": "nx serve --port 4201 --host 0.0.0.0",
     "build": "nx build",
     "watch": "nx build --watch --configuration development",
     "test": "nx test"

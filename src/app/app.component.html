@@ -5,7 +5,10 @@
     <app-header></app-header>
   </header>
 
-  <div class="h-[calc(100vh-4em)] overflow-y-auto print:h-auto">
+  <div
+    class="overflow-y-auto print:h-auto"
+    [class]="isMobile ? 'h-[calc(100vh-7em)]' : 'h-[calc(100vh-3em)]'"
+  >
     <router-outlet #o="outlet"> </router-outlet>
   </div>
 
