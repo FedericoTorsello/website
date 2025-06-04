@@ -5,7 +5,7 @@ import { PersonalInfo, Tool } from '../../models/cv-data.model';
 import { EducationComponent } from './education/education.component';
 import { ContactsComponent } from "./contacts/contacts.component";
 import { ToolsComponent } from "./tools/tools.component";
-import { Tools } from './tools/tools.enum';
+import { Tools } from './tools/tools.const';
 import { CapitalizePipe } from "../../shared/pipes/capitalize.pipe";
 import { CertificatesComponent } from "./certificates/certificates.component";
 
@@ -253,6 +253,12 @@ export default class CvComponent {
         name: 'WiX Toolset',
         icon: {
           src: 'img/tools/wix.png'
+        },
+      },
+      {
+        name: 'xeokit',
+        icon: {
+          src: 'img/tools/xeokit.png'
         },
       },
     ],

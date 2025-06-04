@@ -26,7 +26,8 @@ export class EducationComponent implements OnInit {
         },
         thesis: {
           name: 'Progettazione e realizzazione di un Indoor Positioning System basato su geomagnetismo e sensor fusion',
-          link: 'https://drive.google.com/file/d/1Kcv2qO_BBBeQRGyYlGV7KIvCHQuWT3WM/view?usp=sharing'
+          link: `thesis/Torsello Federico - Master's degree thesis.pdf`,
+          download: true
         }
       },
       {
@@ -39,7 +40,8 @@ export class EducationComponent implements OnInit {
         },
         thesis: {
           name: 'Accesso alla rete Internet attraverso il protocollo Bluetooth',
-          link: 'https://drive.google.com/file/d/0B-NHZ__iPz66VHd5VzlPNV8xbGs/view?usp=sharing'
+          link: `thesis/Torsello Federico - Bachelor's degree thesis.pdf`,
+          download: true
         }
       }
     ];
@@ -55,7 +57,8 @@ export class EducationComponent implements OnInit {
         },
         thesis: {
           name: 'Progettazione e realizzazione di un Indoor Positioning System basato su geomagnetismo e sensor fusion',
-          link: 'https://drive.google.com/file/d/1Kcv2qO_BBBeQRGyYlGV7KIvCHQuWT3WM/view?usp=sharing'
+          link: `thesis/Torsello Federico - Master's degree thesis.pdf`,
+          download: true
         }
       },
       {
@@ -68,7 +71,8 @@ export class EducationComponent implements OnInit {
         },
         thesis: {
           name: 'Accesso alla rete Internet attraverso il protocollo Bluetooth',
-          link: 'https://drive.google.com/file/d/0B-NHZ__iPz66VHd5VzlPNV8xbGs/view?usp=sharing'
+          link: `thesis/Torsello Federico - Bachelor's degree thesis.pdf`,
+          download: true
         }
       }
     ];

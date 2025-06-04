@@ -47,6 +47,7 @@ export type Education = {
   thesis: {
     name: string;
     link: string;
+    download: boolean
   }
 }
 

@@ -44,6 +44,7 @@ export class WorkExperienceComponent implements OnInit {
             website: 'http://www.acsoftware.it'
           },
           details: [
+            'Sviluppato un editor 3d per BIM (Building Information Modeling)',
             'Sviluppato nuove feature per un portale Angular di gestione ferroviaria',
             'Sviluppato e mantenuto portlets Angular per un portale di emissione Flexible Benefits aziendali basato su Liferay',
             'Sviluppato librerie Angular per progetti interni e cliente',
@@ -132,6 +133,7 @@ export class WorkExperienceComponent implements OnInit {
             website: 'http://www.acsoftware.it'
           },
           details: [
+            'Developed a 3D editor for BIM (Building Information Modeling)',
             'Developed new features for an Angular railway management portal',
             'Developed and maintained Angular portlets for a Liferay based corporate Flexible Benefits issuing portal',
             'Developed Angular libraries for internal and client projects',
